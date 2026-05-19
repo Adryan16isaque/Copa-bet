@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copa Bet - Login</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="login-page">
+
+    <section class="left-panel">
+      <div class="left-overlay"></div>
+
+      <div class="left-content">
+        <img src="images/logo.jpeg" alt="Copa Bet" class="logo">
+
+        <p class="tagline">
+          PALPITES • <span>DIVERSÃO</span> • COMPETIÇÃO
+        </p>
+
+        <h1>
+          A plataforma de <span>palpites esportivos</span><br>
+          feita para quem vive o esporte<br>
+          e gosta de competir
+        </h1>
+      </div>
+    </section>
+
+    <section class="right-panel">
+      <form class="login-card">
+
+        <div class="card-header">
+          <h2>Acesse a plataforma</h2>
+          <p>Entre para continuar sua experiência esportiva.</p>
+        </div>
+
+        <div class="field-group">
+          <label for="email">E-mail ou usuário</label>
+          <div class="input-box">
+            <i data-lucide="user"></i>
+            <input id="email" type="text" placeholder="Digite seu e-mail ou usuário">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="password">Senha</label>
+          <div class="input-box">
+            <i data-lucide="lock"></i>
+            <input id="password" type="password" placeholder="Digite sua senha">
+
+            <button type="button" class="eye-btn">
+              <i data-lucide="eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="options-row">
+          <label class="remember">
+            <input type="checkbox" checked>
+            <span class="checkmark"></span>
+            Lembrar de mim
+          </label>
+
+          <a href="#">Esqueceu a senha?</a>
+        </div>
+
+        <button type="submit" class="login-btn">Entrar</button>
+
+        <div class="divider">
+          <span></span>
+          <p>ou continue com</p>
+          <span></span>
+        </div>
+
+        <button class="google-btn" type="button">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="">
+          Entrar com Google
+        </button>
+
+        <p class="signup-text">
+          Ainda não tem uma conta?
+          <a href="#">Criar conta</a>
+        </p>
+
+      </form>
+    </section>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
