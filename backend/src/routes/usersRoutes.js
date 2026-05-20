@@ -1,7 +1,8 @@
 const express = require('express');
-const router = express.Router();
-const usersController = require('../controllers/usersController');
+const router  = express.Router();
+const { getUserTickets } = require('../controllers/usersController');
 
-router.get('/:id/tickets', usersController.getTickets);
+// GET /api/users/:id/tickets — consulta tickets do usuário
+router.get('/:id/tickets', getUserTickets);
 
 module.exports = router;

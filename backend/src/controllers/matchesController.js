@@ -1,24 +1,22 @@
-const matchesService = require('../services/matchesService');
-const apiResponse = require('../utils/apiResponse');
+/**
+ * Controller de partidas.
+ * Apenas delega para o service e formata a resposta.
+ */
 
-const matchesController = {
-    getUpcoming: async (req, res, next) => {
-        try {
-            const matches = await matchesService.getUpcomingMatches();
-            return apiResponse.success(res, 'Upcoming matches retrieved successfully', matches);
-        } catch (error) {
-            next(error);
-        }
-    },
+const { success }               = require('../utils/apiResponse');
+const { getUpcomingMatches }    = require('../services/matchesService');
 
-    getAll: async (req, res, next) => {
-        try {
-            const matches = await matchesService.getAllMatches();
-            return apiResponse.success(res, 'All matches retrieved successfully', matches);
-        } catch (error) {
-            next(error);
-        }
-    }
-};
+/**
+ * GET /api/matches
+ * Lista todas as partidas com status 'upcoming'.
+ */
+function listMatches(req, res, next) {
+  try {
+    const matches = getUpcomingMatches();
+    return success(res, matches, `${matches.length} partida(s) encontrada(s).`);
+  } catch (err) {
+    return next(err);
+  }
+}
 
-module.exports = matchesController;
+module.exports = { listMatches };

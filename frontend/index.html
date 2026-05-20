@@ -1,40 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copa Bet - Sistema de Apostas</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copa Bet 2026 — Sistema de Apostas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-    <header id="header-container"></header>
 
-    <main class="container">
-        <nav class="tabs">
-            <button class="tab-btn active" data-tab="home">Partidas</button>
-            <button class="tab-btn" data-tab="history">Meu Histórico</button>
-        </nav>
-
-        <section id="content">
-            <!-- Content will be injected here -->
-        </section>
-    </main>
-
-    <!-- Modal for Betting -->
-    <div id="bet-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="bet-form-container"></div>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">🏆</span>
+        <span class="logo-text">COPA BET <span class="logo-year">2026</span></span>
+      </div>
+      <div class="user-badge">
+        <!-- GRUPO 1: Substituir pelo nome do usuário logado -->
+        <span class="user-avatar">⚽</span>
+        <div class="user-info">
+          <span class="user-name" id="username-display">torcedor</span>
+          <span class="user-tickets" id="tickets-display">
+            <span class="ticket-icon">🎟️</span>
+            <span id="ticket-count">—</span> ticket(s)
+          </span>
         </div>
+      </div>
     </div>
+    <!-- Modo teste — remover após integração com Grupo 1 -->
+    <div class="test-banner">
+      ⚠️ Modo Teste — Usuário: <strong>torcedor (id=1)</strong> · Grupo 1 integrará autenticação real aqui
+    </div>
+  </header>
 
-    <script src="services/api.js"></script>
-    <script src="utils/dom.js"></script>
-    <script src="utils/formatters.js"></script>
-    <script src="components/header/header.js"></script>
-    <script src="components/match-card/match-card.js"></script>
-    <script src="components/bet-form/bet-form.js"></script>
-    <script src="components/history-table/history-table.js"></script>
-    <script src="assets/js/main.js"></script>
+  <!-- NAVEGAÇÃO POR ABAS -->
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="partidas">⚽ Partidas</button>
+    <button class="tab-btn" data-tab="historico">📋 Meu Histórico</button>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- ABA: PARTIDAS -->
+    <section class="tab-content active" id="tab-partidas">
+      <div class="section-header">
+        <h1 class="section-title">Próximas Partidas do Brasil</h1>
+        <p class="section-subtitle">Faça seu palpite no placar exato — 1 ticket por usuário</p>
+      </div>
+
+      <div id="matches-loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Carregando partidas...</p>
+      </div>
+
+      <div id="matches-empty" class="empty-state hidden">
+        <span class="empty-icon">📭</span>
+        <p>Nenhuma partida disponível no momento.</p>
+      </div>
+
+      <div id="matches-error" class="error-banner hidden"></div>
+
+      <div id="matches-grid" class="matches-grid hidden"></div>
+    </section>
+
+    <!-- ABA: HISTÓRICO -->
+    <section class="tab-content hidden" id="tab-historico">
+      <div class="section-header">
+        <h1 class="section-title">Minhas Apostas</h1>
+        <p class="section-subtitle">Histórico de palpites registrados</p>
+      </div>
+
+      <div id="history-loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Carregando histórico...</p>
+      </div>
+
+      <div id="history-empty" class="empty-state hidden">
+        <span class="empty-icon">🎯</span>
+        <p>Você ainda não fez nenhuma aposta.</p>
+        <button class="btn btn-outline" onclick="switchTab('partidas')">Ver Partidas →</button>
+      </div>
+
+      <div id="history-error" class="error-banner hidden"></div>
+
+      <div id="history-list" class="history-list hidden"></div>
+    </section>
+
+  </main>
+
+  <!-- TOAST DE FEEDBACK -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Scripts (ordem importa) -->
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/matches.js"></script>
+  <script src="assets/js/history.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>

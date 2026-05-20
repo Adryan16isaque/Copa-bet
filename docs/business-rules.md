@@ -1,18 +1,25 @@
-# Business Rules - Group 2 (Betting System)
+# 📏 Regras de Negócio — Sistema de Apostas
 
 ## Tickets
-- Each user starts with 1 ticket (defined in `users` table).
-- 1 ticket = 1 bet.
-- Tickets are consumed upon successful bet creation.
-- If tickets = 0, the user cannot place more bets.
+- Cada usuário começa com **1 ticket**
+- 1 ticket é consumido ao fazer qualquer aposta
+- O campo `tickets` é inteiro — preparado para múltiplos tickets futuramente
+- Sem ticket → erro 400
 
-## Betting
-- Bets consist of score predictions (e.g., 2x1).
-- Users can only bet on matches that haven't started yet.
-- Only one bet is allowed per match per user.
-- Matches are restricted to Brazil's games in the 2026 World Cup.
+## Apostas
+- Apenas **1 aposta por partida por usuário** (UNIQUE constraint no banco)
+- Aposta em placar de gols (inteiros >= 0)
+- Não é possível apostar em partidas com `status = 'finished'`
+- Não é possível apostar em partidas cuja `match_date` já passou
 
-## Scoring (Integration for Group 3)
-- Exact match: 10 points.
-- Partial match: 7 points.
-- Error: 0 points.
+## Pontuação (implementada, aguarda Grupo 3 acionar)
+| Cenário                          | Pontos |
+|----------------------------------|--------|
+| Placar exato correto             | 10 pts |
+| Vencedor OU empate OU saldo certo| 7 pts  |
+| Errou tudo                       | 0 pts  |
+
+## Partidas
+- 7 partidas fixas do Brasil na Copa 2026
+- Datas geradas dinamicamente no seed (hoje + 30..60 dias) para testes
+- Status: `upcoming` → `finished` após Grupo 3 registrar resultado
