@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa Bet - Sistema de Apostas</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header id="header-container"></header>
+
+    <main class="container">
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="home">Partidas</button>
+            <button class="tab-btn" data-tab="history">Meu Histórico</button>
+        </nav>
+
+        <section id="content">
+            <!-- Content will be injected here -->
+        </section>
+    </main>
+
+    <!-- Modal for Betting -->
+    <div id="bet-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="bet-form-container"></div>
+        </div>
+    </div>
+
+    <script src="services/api.js"></script>
+    <script src="utils/dom.js"></script>
+    <script src="utils/formatters.js"></script>
+    <script src="components/header/header.js"></script>
+    <script src="components/match-card/match-card.js"></script>
+    <script src="components/bet-form/bet-form.js"></script>
+    <script src="components/history-table/history-table.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
