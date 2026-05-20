@@ -1,0 +1,95 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+h1 {
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input.duplicate {
+  border-color: red;
+  background-color: #ffebee;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#resultado {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e9f7ef;
+  border-radius: 4px;
+  display: none;
+}
+
+#listaApostas {
+  margin-top: 30px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.aposta-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.aposta-item:last-child {
+  border-bottom: none;
+}
+
+#adminSection {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #fff3cd;
+  border-radius: 4px;
+  border: 1px solid #ffeeba;
+}
+
+#ranking {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #d1ecf1;
+  border-radius: 4px;
+  border: 1px solid #bee5eb;
+}
+
+.duplicate-warning {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
