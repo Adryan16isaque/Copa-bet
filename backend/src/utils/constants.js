@@ -39,7 +39,7 @@ const BRAZIL_MATCHES = [
 ];
 
 // Número inicial de tickets por usuário
-const INITIAL_TICKETS = 1;
+const INITIAL_TICKETS = 7;
 
 module.exports = {
   MATCH_STATUS,
