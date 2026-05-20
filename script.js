@@ -4,22 +4,22 @@ class Bolao {
     this.jogos = {};
     this.apostas = {};
     this.pontuacoes = {};
+    this.jogosProcessados = new Set();
   }
 
-  // Adiciona um novo usuário
   adicionarUsuario(nomeUsuario) {
-    if (!this.usuarios[nomeUsuario]) {
-      this.usuarios[nomeUsuario] = {
+    const normalizedNome = nomeUsuario.toLowerCase().trim();
+    if (!this.usuarios[normalizedNome]) {
+      this.usuarios[normalizedNome] = {
         nome: nomeUsuario,
         apostasRealizadas: new Set()
       };
-      this.pontuacoes[nomeUsuario] = 0;
+      this.pontuacoes[normalizedNome] = 0;
       return true;
     }
     return false;
   }
 
-  // Adiciona um novo jogo
   adicionarJogo(idJogo, timeA, timeB) {
     if (!this.jogos[idJogo]) {
       this.jogos[idJogo] = {
@@ -35,26 +35,16 @@ class Bolao {
     return false;
   }
 
-  // Registra o resultado oficial do jogo
-  registrarResultado(idJogo, golsA, golsB) {
-    if (this.jogos[idJogo]) {
-      this.jogos[idJogo].golsA = golsA;
-      this.jogos[idJogo].golsB = golsB;
-      this.processarApostas(idJogo);
-      return true;
-    }
-    return false;
-  }
-
-  // Faz uma aposta
   fazerAposta(nomeUsuario, idJogo, tipoAposta, palpiteA = null, palpiteB = null) {
-    if (!this.usuarios[nomeUsuario]) {
+    const normalizedNome = nomeUsuario.toLowerCase().trim();
+    
+    if (!this.usuarios[normalizedNome]) {
       throw new Error("Usuário não existe");
     }
     if (!this.jogos[idJogo]) {
       throw new Error("Jogo não existe");
     }
-    if (this.usuarios[nomeUsuario].apostasRealizadas.has(idJogo)) {
+    if (this.usuarios[normalizedNome].apostasRealizadas.has(idJogo)) {
       throw new Error("Usuário já fez aposta neste jogo");
     }
     if (this.jogos[idJogo].golsA !== null) {
@@ -72,7 +62,7 @@ class Bolao {
         palpiteA: palpiteA,
         palpiteB: palpiteB
       };
-      this.apostas[`${nomeUsuario}_${idJogo}`] = aposta;
+      this.apostas[`${normalizedNome}_${idJogo}`] = aposta;
     } else if (tipoAposta === "empate") {
       if (palpiteA !== null || palpiteB !== null) {
         throw new Error("Não pode informar palpites para aposta de empate");
@@ -82,17 +72,31 @@ class Bolao {
         jogo: idJogo,
         tipo: "empate"
       };
-      this.apostas[`${nomeUsuario}_${idJogo}`] = aposta;
+      this.apostas[`${normalizedNome}_${idJogo}`] = aposta;
     } else {
       throw new Error("Tipo de aposta inválido");
     }
 
-    this.usuarios[nomeUsuario].apostasRealizadas.add(idJogo);
-    this.jogos[idJogo].apostas.add(`${nomeUsuario}_${idJogo}`);
+    this.usuarios[normalizedNome].apostasRealizadas.add(idJogo);
+    this.jogos[idJogo].apostas.add(`${normalizedNome}_${idJogo}`);
     return true;
   }
 
-  // Processa as apostas de um jogo após o resultado
+  registrarResultado(idJogo, golsA, golsB) {
+    if (this.jogos[idJogo]) {
+      if (this.jogosProcessados.has(idJogo)) {
+        throw new Error("Resultado já registrado para este jogo");
+      }
+      
+      this.jogos[idJogo].golsA = golsA;
+      this.jogos[idJogo].golsB = golsB;
+      this.processarApostas(idJogo);
+      this.jogosProcessados.add(idJogo);
+      return true;
+    }
+    return false;
+  }
+
   processarApostas(idJogo) {
     const jogo = this.jogos[idJogo];
     const golsAReal = jogo.golsA;
@@ -100,68 +104,159 @@ class Bolao {
 
     for (const idAposta of jogo.apostas) {
       const aposta = this.apostas[idAposta];
-      const usuario = aposta.usuario;
+      const normalizedNome = aposta.usuario.toLowerCase().trim();
+      const usuario = this.usuarios[normalizedNome];
 
       if (aposta.tipo === "duplo") {
         const palpiteA = aposta.palpiteA;
         const palpiteB = aposta.palpiteB;
 
         if (palpiteA === golsAReal && palpiteB === golsBReal) {
-          this.pontuacoes[usuario] += 10;
+          this.pontuacoes[normalizedNome] += 10;
         } else if (palpiteA === golsAReal || palpiteB === golsBReal) {
-          this.pontuacoes[usuario] += 7;
+          this.pontuacoes[normalizedNome] += 7;
         }
       } else if (aposta.tipo === "empate") {
         if (golsAReal === golsBReal) {
-          this.pontuacoes[usuario] += 5;
+          this.pontuacoes[normalizedNome] += 5;
         }
       }
     }
   }
 
-  // Gera o ranking de pontuação
   gerarRanking() {
     return Object.entries(this.pontuacoes)
       .sort(([, a], [, b]) => b - a);
   }
 
-  // Obtém a pontuação de um usuário
   obterPontuacaoUsuario(nomeUsuario) {
-    return this.pontuacoes[nomeUsuario] || 0;
+    const normalizedNome = nomeUsuario.toLowerCase().trim();
+    return this.pontuacoes[normalizedNome] || 0;
+  }
+
+  listarApostas() {
+    return Object.values(this.apostas);
+  }
+
+  verificarUsuarioDuplicado(nomeUsuario) {
+    const normalizedNome = nomeUsuario.toLowerCase().trim();
+    return this.usuarios[normalizedNome] !== undefined;
   }
 }
 
-// Exemplo de uso
 const bolao = new Bolao();
 
-// Adicionando usuários
-bolao.adicionarUsuario("João");
-bolao.adicionarUsuario("Maria");
-bolao.adicionarUsuario("Pedro");
-
-// Adicionando jogos
+// Adicionando jogos iniciais
 bolao.adicionarJogo(1, "Flamengo", "Palmeiras");
 bolao.adicionarJogo(2, "São Paulo", "Grêmio");
 
-// Fazendo apostas
-bolao.fazerAposta("João", 1, "duplo", 2, 1);       // Palpite: Flamengo 2 x 1 Palmeiras
-bolao.fazerAposta("Maria", 1, "empate");            // Aposta em empate
-bolao.fazerAposta("Pedro", 1, "duplo", 1, 2);      // Palpite: Flamengo 1 x 2 Palmeiras
-bolao.fazerAposta("Maria", 2, "duplo", 0, 0);      // Palpite: São Paulo 0 x 0 Grêmio
+// Event listener para alternar campos de palpite
+document.getElementById('tipoAposta').addEventListener('change', function() {
+  const palpiteGroup = document.getElementById('palpiteGroup');
+  if (this.value === 'empate') {
+    palpiteGroup.style.display = 'none';
+  } else {
+    palpiteGroup.style.display = 'block';
+  }
+});
 
-// Registrando resultados oficiais
-bolao.registrarResultado(1, 2, 1);  // Flamengo 2 x 1 Palmeiras
-bolao.registrarResultado(2, 0, 0);  // São Paulo 0 x 0 Grêmio
+function checkDuplicateUser() {
+  const usuarioInput = document.getElementById('usuario');
+  const userWarning = document.getElementById('userWarning');
+  const usuario = usuarioInput.value.trim();
 
-// Exibindo pontuações
-console.log("Pontuações:");
-for (const [nome, pontos] of Object.entries(bolao.pontuacoes)) {
-  console.log(`${nome}: ${pontos} pontos`);
+  if (usuario && bolao.verificarUsuarioDuplicado(usuario)) {
+    usuarioInput.classList.add('duplicate');
+    userWarning.textContent = '⚠️ Este nome de usuário já existe!';
+  } else {
+    usuarioInput.classList.remove('duplicate');
+    userWarning.textContent = '';
+  }
 }
 
-// Gerando ranking
-const ranking = bolao.gerarRanking();
-console.log("\nRanking:");
-ranking.forEach(([nome, pontos], index) => {
-  console.log(`${index + 1}. ${nome}: ${pontos} pontos`);
-});
+function fazerAposta() {
+  const usuario = document.getElementById('usuario').value;
+  const jogo = document.getElementById('jogo').value;
+  const tipoAposta = document.getElementById('tipoAposta').value;
+  const palpiteA = document.getElementById('palpiteA').value;
+  const palpiteB = document.getElementById('palpiteB').value;
+
+  try {
+    if (bolao.verificarUsuarioDuplicado(usuario)) {
+      throw new Error("Nome de usuário já existe!");
+    }
+
+    bolao.adicionarUsuario(usuario);
+    bolao.fazerAposta(
+      usuario,
+      parseInt(jogo),
+      tipoAposta,
+      tipoAposta === 'duplo' ? parseInt(palpiteA) : null,
+      tipoAposta === 'duplo' ? parseInt(palpiteB) : null
+    );
+
+    document.getElementById('resultado').style.display = 'block';
+    document.getElementById('resultado').innerHTML = `
+      <h3>Aposta Registrada!</h3>
+      <p><strong>Usuário:</strong> ${usuario}</p>
+      <p><strong>Jogo:</strong> ${jogo}</p>
+      <p><strong>Tipo:</strong> ${tipoAposta === 'empate' ? 'Empate' : 'Duplo'}</p>
+      ${tipoAposta === 'duplo' ? `<p><strong>Palpite:</strong> ${palpiteA} x ${palpiteB}</p>` : ''}
+    `;
+
+    atualizarListaApostas();
+    atualizarRanking();
+  } catch (error) {
+    alert("Erro: " + error.message);
+  }
+}
+
+function registrarResultado() {
+  const jogo = document.getElementById('adminJogo').value;
+  const golsA = document.getElementById('adminGolsA').value;
+  const golsB = document.getElementById('adminGolsB').value;
+
+  try {
+    bolao.registrarResultado(parseInt(jogo), parseInt(golsA), parseInt(golsB));
+    alert(`Resultado do jogo ${jogo} registrado: ${golsA} x ${golsB}`);
+    atualizarRanking();
+    atualizarListaApostas();
+  } catch (error) {
+    alert("Erro ao registrar resultado: " + error.message);
+  }
+}
+
+function atualizarListaApostas() {
+  const apostasList = document.getElementById('apostasList');
+  const apostas = bolao.listarApostas();
+
+  apostasList.innerHTML = apostas.map(aposta => {
+    const jogo = bolao.jogos[aposta.jogo];
+    const status = jogo.golsA !== null ? 
+      `<p><strong>Resultado:</strong> ${jogo.golsA} x ${jogo.golsB}</p>` : 
+      '<p><strong>Status:</strong> Ainda não registrado</p>';
+    
+    return `
+      <div class="aposta-item">
+        <p><strong>Usuário:</strong> ${aposta.usuario}</p>
+        <p><strong>Jogo:</strong> ${jogo.timeA} vs ${jogo.timeB}</p>
+        <p><strong>Tipo:</strong> ${aposta.tipo === 'empate' ? 'Empate' : 'Duplo'}</p>
+        ${aposta.tipo === 'duplo' ? `<p><strong>Palpite:</strong> ${aposta.palpiteA} x ${aposta.palpiteB}</p>` : ''}
+        ${status}
+      </div>
+    `;
+  }).join('');
+}
+
+function atualizarRanking() {
+  const rankingList = document.getElementById('rankingList');
+  const ranking = bolao.gerarRanking();
+
+  rankingList.innerHTML = ranking.map(([nome, pontos], index) => `
+    <p>${index + 1}. ${nome}: ${pontos} pontos</p>
+  `).join('');
+}
+
+// Inicializa as listas
+atualizarListaApostas();
+atualizarRanking();
