@@ -32,11 +32,11 @@ git checkout cadastro-usuarios
 
 ---
 
-### Grupo 2 — `dashboard-interface`
+### Grupo 2— `sistema-de-apostas``
 **Integrantes:** Lorran, Ádryan, Vitor
 
 ```bash
-git checkout dashboard-interface
+git checkout sistema-de-apostas
 ```
 
 ---
@@ -59,12 +59,13 @@ git checkout rankings
 
 ---
 
-### Grupo 5 — `sistema-de-apostas`
+### Grupo 5 — `dashboard-interface`
 **Integrantes:** Lucas, Daniel, Ygor
 
 ```bash
-git checkout sistema-de-apostas
+git checkout dashboard-interface
 ```
+
 
 ---
 
