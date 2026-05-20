@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bolão</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>🏆 Sistema de Bolão</h1>
+
+    <!-- FAZER APOSTA -->
+    <div class="card">
+
+      <h2>Fazer Aposta</h2>
+
+      <input
+        type="text"
+        id="usuario"
+        placeholder="Nome do usuário"
+      >
+
+      <select id="jogo"></select>
+
+      <select id="tipoAposta">
+
+        <option value="duplo">
+          Placar
+        </option>
+
+        <option value="empate">
+          Empate
+        </option>
+
+      </select>
+
+      <div id="palpiteGroup">
+
+        <input
+          type="number"
+          id="palpiteA"
+          placeholder="Gols Time A"
+        >
+
+        <input
+          type="number"
+          id="palpiteB"
+          placeholder="Gols Time B"
+        >
+
+      </div>
+
+      <button id="fazerApostaBtn">
+        Fazer aposta
+      </button>
+
+    </div>
+
+    <!-- ADMIN -->
+    <div class="card">
+
+      <h2>Registrar Resultado</h2>
+
+      <select id="adminJogo"></select>
+
+      <input
+        type="number"
+        id="adminGolsA"
+        placeholder="Gols Time A"
+      >
+
+      <input
+        type="number"
+        id="adminGolsB"
+        placeholder="Gols Time B"
+      >
+
+      <button id="registrarResultadoBtn">
+        Registrar Resultado
+      </button>
+
+    </div>
+
+    <!-- FILTRO -->
+    <div class="card">
+
+      <h2>📅 Filtrar Rodada</h2>
+
+      <select id="filtroRodada">
+        <option value="todas">Todas</option>
+      </select>
+
+    </div>
+
+    <!-- RANKING -->
+    <div class="card">
+
+      <h2>🏅 Ranking Geral</h2>
+
+      <div id="rankingList"></div>
+
+    </div>
+
+    <!-- TOP ACERTOS -->
+    <div class="card">
+
+      <h2>🎯 Top Acertos</h2>
+
+      <div id="top3"></div>
+
+    </div>
+
+    <!-- GRAFICO -->
+    <div class="card">
+
+      <h2>📊 Pontuação</h2>
+
+      <div id="graficoTodos"></div>
+
+    </div>
+
+    <!-- APOSTAS -->
+    <div class="card">
+
+      <h2>📋 Apostas</h2>
+
+      <div id="apostasPorRodada"></div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
