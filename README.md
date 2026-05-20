@@ -18,43 +18,47 @@ Este módulo é responsável pelo gerenciamento de apostas, tickets e histórico
 └── .gitignore        # Configurações para versionamento limpo
 ```
 
-## 🛠️ Como Executar
+## 🛠️ Como Executar em uma Máquina Nova
 
 ### Pré-requisitos
-- [Node.js](https://nodejs.org/) instalado (versão 14 ou superior).
+- [Node.js](https://nodejs.org/) instalado (versão 18 ou superior recomendada).
 
-### 1. Backend (Servidor)
-1. Navegue até a pasta: `cd backend`
-2. Instale as dependências: `npm install`
-3. Inicie o servidor: `npm start` (ou `npm run dev` para desenvolvimento com nodemon).
-   - **Nota**: O banco de dados SQLite (`database.db`) será criado e populado automaticamente na primeira execução com os jogos do Brasil na Copa 2026.
+### 1. Configuração do Backend (Servidor)
+1. **Acesse a pasta do backend:**
+   ```bash
+   cd backend
+   ```
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+3. **Configure as variáveis de ambiente:**
+   Crie um arquivo `.env` na raiz da pasta `backend` (ou copie o exemplo):
+   ```bash
+   cp .env.example .env
+   ```
+   *Nota: O arquivo `.env` padrão já vem configurado para usar a porta 3000.*
+4. **Inicie o servidor:**
+   ```bash
+   npm start
+   ```
+   - O servidor rodará em `http://localhost:3000`.
+   - **Banco de Dados**: O banco SQLite (`database.db`) e os dados iniciais (jogos do Brasil) são criados automaticamente na primeira execução.
 
-### 2. Frontend (Interface)
-1. Basta abrir o arquivo `frontend/index.html` em qualquer navegador moderno.
-2. Certifique-se de que o backend está rodando no endereço `http://localhost:3000`.
-
-## ⚽ Funcionalidades do Grupo 2
-- **Listagem de Partidas**: Exibição automática dos jogos do Brasil (pré-cadastrados).
-- **Sistema de Apostas**: Permite realizar palpites de placar exato.
-- **Gestão de Tickets**: Controle de consumo de tickets (usuário inicia com 1 ticket).
-- **Validações de Negócio**:
-  - Impede apostas duplicadas no mesmo jogo.
-  - Impede apostas em jogos que já passaram da data/hora.
-  - Valida saldo de tickets do usuário.
-- **Histórico**: Visualização de todos os palpites realizados pelo usuário.
-
-## 🔗 Integração com outros Grupos
-Este módulo foi preparado para ser facilmente integrado:
-- **Grupo 1 (Auth)**: O backend utiliza um `authMockMiddleware`. Substitua pela sua lógica de JWT/Sessão.
-- **Grupo 3 (Pontuação)**: O campo `points` na tabela `bets` e o endpoint `GET /api/bets/all` estão prontos para seu uso.
-- **Grupo 4 (Ranking)**: Dados centralizados na tabela `bets` para facilitar a agregação de pontos.
-
-Para mais detalhes, consulte `docs/integration-guide.md`.
+### 2. Configuração do Frontend (Interface)
+1. Não é necessário instalar dependências para o frontend (Vanilla JS).
+2. Basta abrir o arquivo `frontend/index.html` no seu navegador de preferência.
+3. **Importante**: O frontend espera que o backend esteja rodando em `http://localhost:3000`. Se você alterou a porta no `.env` do backend, atualize a constante `API_URL` em `frontend/services/api.js`.
 
 ## ⚠️ Troubleshooting (Solução de Problemas)
-- **Erro de Conexão**: Verifique se a porta `3000` está livre. O backend roda em `0.0.0.0:3000` para garantir acessibilidade.
-- **CORS**: O servidor está configurado para aceitar requisições de qualquer origem (`*`), facilitando o desenvolvimento local.
-- **Banco de Dados**: Se precisar resetar os dados, basta deletar o arquivo `backend/src/database/database.db` e reiniciar o servidor.
+
+- **Erro de Conexão com o Servidor**:
+  1. Verifique se o terminal do backend está aberto e sem erros.
+  2. Certifique-se de que rodou `npm install` na pasta `backend`.
+  3. Verifique se existe o arquivo `.env` na pasta `backend`.
+  4. Tente acessar `http://localhost:3000/health` no navegador. Se carregar um JSON com `status: "ok"`, o backend está funcionando.
+- **Node_modules não encontrado**: Se você clonou o repositório agora, lembre-se que a pasta `node_modules` não é versionada. Você **precisa** rodar `npm install`.
+- **Porta em uso**: Se a porta 3000 estiver ocupada, altere o valor de `PORT` no arquivo `.env` e reinicie o servidor.
 
 ---
 *Desenvolvido pela equipe do Grupo 2 - Copa Bet 2026.*
