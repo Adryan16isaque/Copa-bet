@@ -11,7 +11,7 @@
 
   <div class="form-group">
     <label for="usuario">Nome do Usuário:</label>
-    <input type="text" id="usuario" placeholder="Digite seu nome" onkeyup="checkDuplicateUser()">
+    <input type="text" id="usuario" placeholder="Digite seu nome">
     <div id="userWarning" class="duplicate-warning"></div>
   </div>
 
@@ -35,7 +35,7 @@
     <input type="number" id="palpiteB" placeholder="Ex: 1">
   </div>
 
-  <button onclick="fazerAposta()">Fazer Aposta</button>
+  <button id="fazerApostaBtn">Fazer Aposta</button>
 
   <div id="resultado"></div>
 
@@ -58,7 +58,7 @@
       <label for="adminGolsB">Gols do Time B:</label>
       <input type="number" id="adminGolsB" placeholder="Ex: 1">
     </div>
-    <button onclick="registrarResultado()">Registrar Resultado</button>
+    <button id="registrarResultadoBtn">Registrar Resultado</button>
   </div>
 
   <div id="ranking">

@@ -144,119 +144,126 @@ class Bolao {
   }
 }
 
-const bolao = new Bolao();
+// Inicialização do sistema
+document.addEventListener('DOMContentLoaded', function() {
+  const bolao = new Bolao();
 
-// Adicionando jogos iniciais
-bolao.adicionarJogo(1, "Flamengo", "Palmeiras");
-bolao.adicionarJogo(2, "São Paulo", "Grêmio");
+  // Adicionando jogos iniciais
+  bolao.adicionarJogo(1, "Flamengo", "Palmeiras");
+  bolao.adicionarJogo(2, "São Paulo", "Grêmio");
 
-// Event listener para alternar campos de palpite
-document.getElementById('tipoAposta').addEventListener('change', function() {
-  const palpiteGroup = document.getElementById('palpiteGroup');
-  if (this.value === 'empate') {
-    palpiteGroup.style.display = 'none';
-  } else {
-    palpiteGroup.style.display = 'block';
-  }
-});
-
-function checkDuplicateUser() {
-  const usuarioInput = document.getElementById('usuario');
-  const userWarning = document.getElementById('userWarning');
-  const usuario = usuarioInput.value.trim();
-
-  if (usuario && bolao.verificarUsuarioDuplicado(usuario)) {
-    usuarioInput.classList.add('duplicate');
-    userWarning.textContent = '⚠️ Este nome de usuário já existe!';
-  } else {
-    usuarioInput.classList.remove('duplicate');
-    userWarning.textContent = '';
-  }
-}
-
-function fazerAposta() {
-  const usuario = document.getElementById('usuario').value;
-  const jogo = document.getElementById('jogo').value;
-  const tipoAposta = document.getElementById('tipoAposta').value;
-  const palpiteA = document.getElementById('palpiteA').value;
-  const palpiteB = document.getElementById('palpiteB').value;
-
-  try {
-    if (bolao.verificarUsuarioDuplicado(usuario)) {
-      throw new Error("Nome de usuário já existe!");
+  // Alternar campos de palpite
+  document.getElementById('tipoAposta').addEventListener('change', function() {
+    const palpiteGroup = document.getElementById('palpiteGroup');
+    if (this.value === 'empate') {
+      palpiteGroup.style.display = 'none';
+    } else {
+      palpiteGroup.style.display = 'block';
     }
+  });
 
-    bolao.adicionarUsuario(usuario);
-    bolao.fazerAposta(
-      usuario,
-      parseInt(jogo),
-      tipoAposta,
-      tipoAposta === 'duplo' ? parseInt(palpiteA) : null,
-      tipoAposta === 'duplo' ? parseInt(palpiteB) : null
-    );
+  // Verificar duplicidade de usuário em tempo real
+  document.getElementById('usuario').addEventListener('input', function() {
+    const usuarioInput = document.getElementById('usuario');
+    const userWarning = document.getElementById('userWarning');
+    const usuario = usuarioInput.value.trim();
 
-    document.getElementById('resultado').style.display = 'block';
-    document.getElementById('resultado').innerHTML = `
-      <h3>Aposta Registrada!</h3>
-      <p><strong>Usuário:</strong> ${usuario}</p>
-      <p><strong>Jogo:</strong> ${jogo}</p>
-      <p><strong>Tipo:</strong> ${tipoAposta === 'empate' ? 'Empate' : 'Duplo'}</p>
-      ${tipoAposta === 'duplo' ? `<p><strong>Palpite:</strong> ${palpiteA} x ${palpiteB}</p>` : ''}
-    `;
+    if (usuario && bolao.verificarUsuarioDuplicado(usuario)) {
+      usuarioInput.classList.add('duplicate');
+      userWarning.textContent = '⚠️ Este nome de usuário já existe!';
+    } else {
+      usuarioInput.classList.remove('duplicate');
+      userWarning.textContent = '';
+    }
+  });
 
-    atualizarListaApostas();
-    atualizarRanking();
-  } catch (error) {
-    alert("Erro: " + error.message);
+  // Função para fazer aposta
+  document.getElementById('fazerApostaBtn').addEventListener('click', function() {
+    const usuario = document.getElementById('usuario').value;
+    const jogo = document.getElementById('jogo').value;
+    const tipoAposta = document.getElementById('tipoAposta').value;
+    const palpiteA = document.getElementById('palpiteA').value;
+    const palpiteB = document.getElementById('palpiteB').value;
+
+    try {
+      if (bolao.verificarUsuarioDuplicado(usuario)) {
+        throw new Error("Nome de usuário já existe!");
+      }
+
+      bolao.adicionarUsuario(usuario);
+      bolao.fazerAposta(
+        usuario,
+        parseInt(jogo),
+        tipoAposta,
+        tipoAposta === 'duplo' ? parseInt(palpiteA) : null,
+        tipoAposta === 'duplo' ? parseInt(palpiteB) : null
+      );
+
+      document.getElementById('resultado').style.display = 'block';
+      document.getElementById('resultado').innerHTML = `
+        <h3>Aposta Registrada!</h3>
+        <p><strong>Usuário:</strong> ${usuario}</p>
+        <p><strong>Jogo:</strong> ${jogo}</p>
+        <p><strong>Tipo:</strong> ${tipoAposta === 'empate' ? 'Empate' : 'Duplo'}</p>
+        ${tipoAposta === 'duplo' ? `<p><strong>Palpite:</strong> ${palpiteA} x ${palpiteB}</p>` : ''}
+      `;
+
+      atualizarListaApostas();
+      atualizarRanking();
+    } catch (error) {
+      alert("Erro: " + error.message);
+    }
+  });
+
+  // Função para registrar resultado
+  document.getElementById('registrarResultadoBtn').addEventListener('click', function() {
+    const jogo = document.getElementById('adminJogo').value;
+    const golsA = document.getElementById('adminGolsA').value;
+    const golsB = document.getElementById('adminGolsB').value;
+
+    try {
+      bolao.registrarResultado(parseInt(jogo), parseInt(golsA), parseInt(golsB));
+      alert(`Resultado do jogo ${jogo} registrado: ${golsA} x ${golsB}`);
+      atualizarRanking();
+      atualizarListaApostas();
+    } catch (error) {
+      alert("Erro ao registrar resultado: " + error.message);
+    }
+  });
+
+  // Funções de atualização
+  function atualizarListaApostas() {
+    const apostasList = document.getElementById('apostasList');
+    const apostas = bolao.listarApostas();
+
+    apostasList.innerHTML = apostas.map(aposta => {
+      const jogo = bolao.jogos[aposta.jogo];
+      const status = jogo.golsA !== null ? 
+        `<p><strong>Resultado:</strong> ${jogo.golsA} x ${jogo.golsB}</p>` : 
+        '<p><strong>Status:</strong> Ainda não registrado</p>';
+      
+      return `
+        <div class="aposta-item">
+          <p><strong>Usuário:</strong> ${aposta.usuario}</p>
+          <p><strong>Jogo:</strong> ${jogo.timeA} vs ${jogo.timeB}</p>
+          <p><strong>Tipo:</strong> ${aposta.tipo === 'empate' ? 'Empate' : 'Duplo'}</p>
+          ${aposta.tipo === 'duplo' ? `<p><strong>Palpite:</strong> ${aposta.palpiteA} x ${aposta.palpiteB}</p>` : ''}
+          ${status}
+        </div>
+      `;
+    }).join('');
   }
-}
 
-function registrarResultado() {
-  const jogo = document.getElementById('adminJogo').value;
-  const golsA = document.getElementById('adminGolsA').value;
-  const golsB = document.getElementById('adminGolsB').value;
+  function atualizarRanking() {
+    const rankingList = document.getElementById('rankingList');
+    const ranking = bolao.gerarRanking();
 
-  try {
-    bolao.registrarResultado(parseInt(jogo), parseInt(golsA), parseInt(golsB));
-    alert(`Resultado do jogo ${jogo} registrado: ${golsA} x ${golsB}`);
-    atualizarRanking();
-    atualizarListaApostas();
-  } catch (error) {
-    alert("Erro ao registrar resultado: " + error.message);
+    rankingList.innerHTML = ranking.map(([nome, pontos], index) => `
+      <p>${index + 1}. ${nome}: ${pontos} pontos</p>
+    `).join('');
   }
-}
 
-function atualizarListaApostas() {
-  const apostasList = document.getElementById('apostasList');
-  const apostas = bolao.listarApostas();
-
-  apostasList.innerHTML = apostas.map(aposta => {
-    const jogo = bolao.jogos[aposta.jogo];
-    const status = jogo.golsA !== null ? 
-      `<p><strong>Resultado:</strong> ${jogo.golsA} x ${jogo.golsB}</p>` : 
-      '<p><strong>Status:</strong> Ainda não registrado</p>';
-    
-    return `
-      <div class="aposta-item">
-        <p><strong>Usuário:</strong> ${aposta.usuario}</p>
-        <p><strong>Jogo:</strong> ${jogo.timeA} vs ${jogo.timeB}</p>
-        <p><strong>Tipo:</strong> ${aposta.tipo === 'empate' ? 'Empate' : 'Duplo'}</p>
-        ${aposta.tipo === 'duplo' ? `<p><strong>Palpite:</strong> ${aposta.palpiteA} x ${aposta.palpiteB}</p>` : ''}
-        ${status}
-      </div>
-    `;
-  }).join('');
-}
-
-function atualizarRanking() {
-  const rankingList = document.getElementById('rankingList');
-  const ranking = bolao.gerarRanking();
-
-  rankingList.innerHTML = ranking.map(([nome, pontos], index) => `
-    <p>${index + 1}. ${nome}: ${pontos} pontos</p>
-  `).join('');
-}
-
-// Inicializa as listas
-atualizarListaApostas();
-atualizarRanking();
+  // Inicializa as listas
+  atualizarListaApostas();
+  atualizarRanking();
+});
