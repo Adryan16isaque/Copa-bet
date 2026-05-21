@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CopaBet Cadastro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/cadastro.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- <script src="script/cadastro.js"></script>
+  <script src="script/login.js"></script> -->
+</head>
+<body>
+
+  <main class="register-page">
+
+    <section class="register-panel">
+
+      <div class="register-card">
+
+        <div class="card-header">
+          <a href="index.html" class="back-link">
+            <i data-lucide="arrow-left"></i>
+            Voltar para login
+          </a>
+
+          <h1>Crie sua conta</h1>
+          <p>Preencha seus dados para acessar a plataforma.</p>
+        </div>
+
+        <form>
+
+          <div class="form-grid">
+
+            <div class="field-group">
+              <label for="nome">Nome completo</label>
+              <div class="input-box">
+                <i data-lucide="user"></i>
+                <input id="nome" type="text" placeholder="Digite seu nome completo">
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="email">E-mail</label>
+              <div class="input-box">
+                <i data-lucide="mail"></i>
+                <input id="email" type="email" placeholder="Digite seu e-mail">
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="telefone">Telefone</label>
+              <div class="input-box">
+                <i data-lucide="phone"></i>
+                <input id="telefone" type="tel" placeholder="(00) 00000-0000">
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="cpf">CPF</label>
+              <div class="input-box">
+                <i data-lucide="badge-check"></i>
+                <input id="cpf" type="text" placeholder="000.000.000-00">
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="data">Data de nascimento</label>
+              <div class="input-box">
+                <i data-lucide="calendar"></i>
+                <input id="data" type="date">
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="usuario">Nome de usuário</label>
+              <div class="input-box">
+                <i data-lucide="at-sign"></i>
+                <input id="usuario" type="text" placeholder="Escolha um usuário">
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="senha">Senha</label>
+              <div class="input-box">
+                <i data-lucide="lock"></i>
+                <input id="senha" type="password" placeholder="Digite sua senha">
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="confirmar">Confirmar senha</label>
+              <div class="input-box">
+                <i data-lucide="lock-keyhole"></i>
+                <input id="confirmar" type="password" placeholder="Confirme sua senha">
+              </div>
+            </div>
+
+          </div>
+
+          <label class="terms">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Li e concordo com os <a href="#">termos de uso</a>.
+          </label>
+
+          <button class="register-btn" type="submit">
+            Criar conta
+          </button>
+
+          <p class="login-text">
+            Já possui uma conta?
+            <a href="index.html">Entrar</a>
+          </p>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  
+  <script src="script/cadastro.js"></script>
+  <script src="script/login.js"></script>
+
+</body>
+</html>
