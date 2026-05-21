@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Copa Bet - Admin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <aside class="sidebar">
+
+      <div class="logo">
+        <img src="../images/logo.jpeg" alt="Copa Bet">
+      </div>
+
+      <nav class="menu">
+        <nav class="menu">
+          <a href="dashboard.html">
+            <i data-lucide="layout-dashboard"></i>
+            Dashboard
+          </a>
+
+          <a href="jogos.html">
+            <i data-lucide="trophy"></i>
+            Jogos
+          </a>
+
+          <a href="palpites.html">
+            <i data-lucide="target"></i>
+            Meus palpites
+          </a>
+
+          <a href="ranking.html">
+            <i data-lucide="bar-chart-3"></i>
+            Ranking
+          </a>
+
+          <a href="perfil.html">
+            <i data-lucide="user"></i>
+            Perfil
+          </a>
+
+          <a class="active" href="admin.html">
+            <i data-lucide="settings"></i>
+            Admin
+          </a>
+
+          <a href="../index.html">
+            <i data-lucide="log-out"></i>
+            Sair
+          </a>
+        </nav>
+      </nav>
+
+      <div class="admin-card">
+        <span>Modo administrador</span>
+        <strong>Controle do bolão</strong>
+        <p>Gerencie jogos, resultados e rodadas.</p>
+      </div>
+
+    </aside>
+
+    <div class="main-area">
+
+      <header class="topbar">
+
+        <div class="search-box">
+          <i data-lucide="search"></i>
+          <input type="text" placeholder="Buscar jogo, rodada ou seleção">
+        </div>
+
+        <div class="user-area">
+
+          <button class="icon-btn" aria-label="Notificações">
+            <i data-lucide="bell"></i>
+          </button>
+
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Foto do administrador">
+            <div>
+              <strong>Admin</strong>
+              <span>Organizador</span>
+            </div>
+          </div>
+
+        </div>
+
+      </header>
+
+      <main class="content">
+
+        <section class="admin-hero">
+
+          <div>
+            <span>Painel administrativo</span>
+            <h1>Gerencie os jogos e resultados do bolão</h1>
+            <p>
+              Cadastre partidas, registre placares oficiais e acompanhe o andamento das rodadas.
+            </p>
+          </div>
+
+          <article class="status-card">
+            <span>Status geral</span>
+            <strong>4 jogos</strong>
+            <p>2 resultados pendentes</p>
+          </article>
+
+        </section>
+
+        <section class="stats-grid">
+
+          <article class="stat-card">
+            <span>Jogos cadastrados</span>
+            <strong>4</strong>
+            <p>Distribuídos em 2 rodadas</p>
+          </article>
+
+          <article class="stat-card">
+            <span>Resultados registrados</span>
+            <strong>2</strong>
+            <p>Jogos já processados</p>
+          </article>
+
+          <article class="stat-card">
+            <span>Apostas recebidas</span>
+            <strong>28</strong>
+            <p>Palpites feitos pelos usuários</p>
+          </article>
+
+          <article class="stat-card highlight">
+            <span>Ranking</span>
+            <strong>Atualizado</strong>
+            <p>Após cada resultado oficial</p>
+          </article>
+
+        </section>
+
+        <section class="admin-grid">
+
+          <article class="panel-card">
+
+            <div class="section-header">
+              <div>
+                <h2>Cadastrar novo jogo</h2>
+                <p>Adicione uma nova partida ao bolão.</p>
+              </div>
+            </div>
+
+            <form class="admin-form">
+
+              <div class="form-group">
+                <label for="rodada">Rodada</label>
+                <input id="rodada" type="number" min="1" placeholder="Ex: 1">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="timeA">Seleção A</label>
+                  <input id="timeA" type="text" placeholder="Ex: Brasil">
+                </div>
+
+                <div class="form-group">
+                  <label for="timeB">Seleção B</label>
+                  <input id="timeB" type="text" placeholder="Ex: Alemanha">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="dataJogo">Data</label>
+                  <input id="dataJogo" type="date">
+                </div>
+
+                <div class="form-group">
+                  <label for="horaJogo">Horário</label>
+                  <input id="horaJogo" type="time">
+                </div>
+              </div>
+
+              <button type="button" class="primary-btn">
+                Cadastrar jogo
+              </button>
+
+            </form>
+
+          </article>
+
+          <article class="panel-card">
+
+            <div class="section-header">
+              <div>
+                <h2>Registrar resultado</h2>
+                <p>Informe o placar oficial para calcular os pontos.</p>
+              </div>
+            </div>
+
+            <form class="admin-form">
+
+              <div class="form-group">
+                <label for="adminJogo">Jogo</label>
+                <select id="adminJogo">
+                  <option>Rodada 1 - Brasil x Alemanha</option>
+                  <option>Rodada 1 - Argentina x França</option>
+                  <option>Rodada 2 - Espanha x Inglaterra</option>
+                  <option>Rodada 2 - Portugal x Itália</option>
+                </select>
+              </div>
+
+              <div class="score-fields">
+                <div class="form-group">
+                  <label for="adminGolsA">Gols A</label>
+                  <input id="adminGolsA" type="number" min="0" placeholder="0">
+                </div>
+
+                <span>x</span>
+
+                <div class="form-group">
+                  <label for="adminGolsB">Gols B</label>
+                  <input id="adminGolsB" type="number" min="0" placeholder="0">
+                </div>
+              </div>
+
+              <button type="button" class="primary-btn">
+                Registrar resultado
+              </button>
+
+            </form>
+
+          </article>
+
+        </section>
+
+        <section class="table-card">
+
+          <div class="section-header">
+            <div>
+              <h2>Jogos cadastrados</h2>
+              <p>Controle das partidas disponíveis no bolão.</p>
+            </div>
+
+            <a href="#">Ver todas as rodadas</a>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Rodada</th>
+                <th>Jogo</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Resultado</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Rodada 1</td>
+                <td>Brasil x Alemanha</td>
+                <td>12/06/2026</td>
+                <td>16:00</td>
+                <td>2 x 1</td>
+                <td><span class="status success">Processado</span></td>
+              </tr>
+
+              <tr>
+                <td>Rodada 1</td>
+                <td>Argentina x França</td>
+                <td>12/06/2026</td>
+                <td>18:30</td>
+                <td>1 x 0</td>
+                <td><span class="status success">Processado</span></td>
+              </tr>
+
+              <tr>
+                <td>Rodada 2</td>
+                <td>Espanha x Inglaterra</td>
+                <td>15/06/2026</td>
+                <td>15:00</td>
+                <td>—</td>
+                <td><span class="status waiting">Pendente</span></td>
+              </tr>
+
+              <tr>
+                <td>Rodada 2</td>
+                <td>Portugal x Itália</td>
+                <td>15/06/2026</td>
+                <td>17:00</td>
+                <td>—</td>
+                <td><span class="status waiting">Pendente</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </section>
+
+        <section class="admin-grid">
+
+          <article class="panel-card">
+
+            <div class="section-header">
+              <div>
+                <h2>Últimas ações</h2>
+                <p>Histórico recente do painel administrativo.</p>
+              </div>
+            </div>
+
+            <div class="activity-list">
+
+              <div class="activity-item">
+                <span class="activity-icon">
+                  <i data-lucide="check-circle"></i>
+                </span>
+
+                <div>
+                  <strong>Resultado registrado</strong>
+                  <p>Brasil 2 x 1 Alemanha</p>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <span class="activity-icon">
+                  <i data-lucide="plus-circle"></i>
+                </span>
+
+                <div>
+                  <strong>Jogo cadastrado</strong>
+                  <p>Portugal x Itália adicionado à Rodada 2</p>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <span class="activity-icon">
+                  <i data-lucide="refresh-cw"></i>
+                </span>
+
+                <div>
+                  <strong>Ranking atualizado</strong>
+                  <p>Pontuação recalculada após resultado oficial</p>
+                </div>
+              </div>
+
+            </div>
+
+          </article>
+
+          <article class="panel-card danger-card">
+
+            <div class="section-header">
+              <div>
+                <h2>Atenção</h2>
+                <p>Ações administrativas afetam todo o bolão.</p>
+              </div>
+            </div>
+
+            <div class="warning-box">
+              <i data-lucide="alert-triangle"></i>
+
+              <div>
+                <strong>Registre resultados com cuidado</strong>
+                <p>
+                  Após registrar um resultado, as apostas são processadas e o ranking pode ser atualizado
+                  automaticamente.
+                </p>
+              </div>
+            </div>
+
+          </article>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+
+</html>
