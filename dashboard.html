@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Copa Bet - Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <aside class="sidebar">
+
+      <div class="logo">
+        <img src="images/logo.jpeg" alt="Copa Bet">
+      </div>
+
+      <nav class="menu">
+        <a class="active" href="#">
+          <i data-lucide="layout-dashboard"></i>
+          Dashboard
+        </a>
+
+        <a href="#">
+          <i data-lucide="trophy"></i>
+          Jogos
+        </a>
+
+        <a href="#">
+          <i data-lucide="target"></i>
+          Meus palpites
+        </a>
+
+        <a href="#">
+          <i data-lucide="bar-chart-3"></i>
+          Ranking
+        </a>
+
+        <a href="#">
+          <i data-lucide="user"></i>
+          Perfil
+        </a>
+
+        <a href="index.html">
+          <i data-lucide="log-out"></i>
+          Sair
+        </a>
+      </nav>
+
+      <div class="mission-card">
+        <span>Missão do dia</span>
+
+        <strong>Faça 3 palpites</strong>
+
+        <p>2 de 3 concluídos</p>
+
+        <div class="progress">
+          <div></div>
+        </div>
+
+        <small>Recompensa: +100 pts</small>
+      </div>
+
+    </aside>
+
+    <div class="main-area">
+
+      <header class="topbar">
+
+        <div class="search-box">
+          <i data-lucide="search"></i>
+
+          <input
+            type="text"
+            placeholder="Buscar jogos ou seleções"
+          >
+        </div>
+
+        <div class="user-area">
+
+          <button class="icon-btn" aria-label="Notificações">
+            <i data-lucide="bell"></i>
+          </button>
+
+          <div class="user-profile">
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              alt="Foto de perfil"
+            >
+
+            <div>
+              <strong>Geremias</strong>
+            </div>
+          </div>
+
+        </div>
+
+      </header>
+
+      <main class="content">
+
+        <section class="welcome">
+
+          <div>
+            <span>Dashboard</span>
+
+            <h1>Bem-vindo de volta, Geremias 👋</h1>
+
+            <p>
+              Acompanhe seus palpites, pontos e desempenho na competição.
+            </p>
+          </div>
+
+        </section>
+
+        <section class="stats-grid">
+
+          <article class="stat-card">
+            <span>Meus pontos</span>
+            <strong>1.250 pts</strong>
+            <p>+120 pontos esta semana</p>
+          </article>
+
+          <article class="stat-card">
+            <span>Palpites ativos</span>
+            <strong>8</strong>
+            <p>3 jogos acontecem hoje</p>
+          </article>
+
+          <article class="stat-card">
+            <span>Taxa de acerto</span>
+            <strong>68%</strong>
+            <p>34 acertos no total</p>
+          </article>
+
+          <article class="stat-card highlight">
+            <span>Ranking geral</span>
+            <strong>12º</strong>
+            <p>Você está no top 10%</p>
+          </article>
+
+        </section>
+
+        <section class="dashboard-grid">
+
+          <div class="left-content">
+
+            <div class="section-header">
+              <div>
+                <h2>Próximos jogos</h2>
+
+                <p>
+                  Escolha o resultado ou tente acertar o placar exato.
+                </p>
+              </div>
+
+              <a href="#">Ver todos</a>
+            </div>
+
+            <div class="matches-grid">
+
+              <article class="match-card">
+
+                <div class="match-top">
+                  <span>Hoje • 16:00</span>
+                </div>
+
+                <div class="teams">
+
+                  <div class="team">
+                    <img
+                      src="https://flagcdn.com/br.svg"
+                      alt="Brasil"
+                      class="flag"
+                    >
+
+                    <strong>Brasil</strong>
+                  </div>
+
+                  <span class="versus">VS</span>
+
+                  <div class="team">
+                    <img
+                      src="https://flagcdn.com/de.svg"
+                      alt="Alemanha"
+                      class="flag"
+                    >
+
+                    <strong>Alemanha</strong>
+                  </div>
+
+                </div>
+
+                <div class="guess-area">
+
+                  <p>Palpite por resultado</p>
+
+                  <div class="guess-buttons">
+                    <button type="button">Brasil</button>
+                    <button type="button">Empate</button>
+                    <button type="button">Alemanha</button>
+                  </div>
+
+                  <div class="score-guess">
+                    <span>Placar exato</span>
+
+                    <div>
+                      <input type="number" min="0" placeholder="0">
+                      <strong>x</strong>
+                      <input type="number" min="0" placeholder="0">
+                    </div>
+                  </div>
+
+                  <button type="button" class="submit-guess">
+                    Salvar palpite
+                  </button>
+
+                </div>
+
+              </article>
+
+              <article class="match-card">
+
+                <div class="match-top">
+                  <span>Hoje • 18:30</span>
+                </div>
+
+                <div class="teams">
+
+                  <div class="team">
+                    <img
+                      src="https://flagcdn.com/ar.svg"
+                      alt="Argentina"
+                      class="flag"
+                    >
+
+                    <strong>Argentina</strong>
+                  </div>
+
+                  <span class="versus">VS</span>
+
+                  <div class="team">
+                    <img
+                      src="https://flagcdn.com/fr.svg"
+                      alt="França"
+                      class="flag"
+                    >
+
+                    <strong>França</strong>
+                  </div>
+
+                </div>
+
+                <div class="guess-area">
+
+                  <p>Palpite por resultado</p>
+
+                  <div class="guess-buttons">
+                    <button type="button">Argentina</button>
+                    <button type="button">Empate</button>
+                    <button type="button">França</button>
+                  </div>
+
+                  <div class="score-guess">
+                    <span>Placar exato</span>
+
+                    <div>
+                      <input type="number" min="0" placeholder="0">
+                      <strong>x</strong>
+                      <input type="number" min="0" placeholder="0">
+                    </div>
+                  </div>
+
+                  <button type="button" class="submit-guess">
+                    Salvar palpite
+                  </button>
+
+                </div>
+
+              </article>
+
+            </div>
+
+            <div class="table-card">
+
+              <div class="section-header">
+                <div>
+                  <h2>Meus palpites</h2>
+
+                  <p>
+                    Veja os palpites que você já registrou.
+                  </p>
+                </div>
+
+                <a href="#">Ver histórico</a>
+              </div>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Jogo</th>
+                    <th>Palpite</th>
+                    <th>Tipo</th>
+                    <th>Pontos possíveis</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Brasil x Alemanha</td>
+                    <td>Brasil vence</td>
+                    <td>Resultado</td>
+                    <td>50 pts</td>
+                    <td>
+                      <span class="status waiting">Aguardando</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Argentina x França</td>
+                    <td>2 x 1</td>
+                    <td>Placar exato</td>
+                    <td>150 pts</td>
+                    <td>
+                      <span class="status success">
+                        Acertou
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+
+          <aside class="right-content">
+            
+            <article class="panel-card points-card">
+              <span>Sistema de pontuação</span>
+
+              <h2>Como ganhar pontos?</h2>
+
+              <div class="points-list">
+                <div>
+                  <strong>+50 pts</strong>
+                  <p>Acertar o resultado</p>
+                </div>
+
+                <div>
+                  <strong>+150 pts</strong>
+                  <p>Acertar o placar exato</p>
+                </div>
+
+                <div>
+                  <strong>+100 pts</strong>
+                  <p>Completar missão diária</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel-card">
+
+              <div class="section-header">
+                <div>
+                  <h2>Top ranking</h2>
+                  <p>Melhores jogadores da rodada.</p>
+                </div>
+              </div>
+
+              <ul class="ranking-list">
+                <li>
+                  <span class="position">1º</span>
+
+                  <img
+                    src="https://randomuser.me/api/portraits/men/11.jpg"
+                    alt="GeremiasPro"
+                    class="ranking-avatar"
+                  >
+
+                  <div>
+                    <strong>GeremiasPro</strong>
+                    <small>12.560 pts</small>
+                  </div>
+                </li>
+
+                <li>
+                  <span class="position">2º</span>
+
+                  <img
+                    src="https://randomuser.me/api/portraits/women/22.jpg"
+                    alt="GabiTips"
+                    class="ranking-avatar"
+                  >
+
+                  <div>
+                    <strong>GabiTips</strong>
+                    <small>11.320 pts</small>
+                  </div>
+                </li>
+
+                <li>
+                  <span class="position">3º</span>
+
+                  <img
+                    src="https://randomuser.me/api/portraits/men/45.jpg"
+                    alt="PedroBet"
+                    class="ranking-avatar"
+                  >
+
+                  <div>
+                    <strong>PedroBet</strong>
+                    <small>10.850 pts</small>
+                  </div>
+                </li>
+              </ul>
+
+            </article>
+
+          </aside>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
