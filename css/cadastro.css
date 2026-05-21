@@ -276,3 +276,15 @@ input {
     align-items: flex-start;
   }
 }
+
+/* Ícone nativo do calendário */
+.input-box input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* Ícone Lucide */
+.input-box i {
+  color: #ffffff;
+}
