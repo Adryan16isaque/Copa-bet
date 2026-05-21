@@ -63,12 +63,13 @@ a {
 }
 
 .logo {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 42px;
+  width: fit-content;
+  margin: 0 auto 42px;
+  display: block;
 }
 
 .logo img {
+  display: block;
   width: 62px;
   height: 62px;
   border-radius: 18px;

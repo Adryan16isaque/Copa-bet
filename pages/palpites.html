@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +8,24 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
-  
+
   <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <link rel="stylesheet" href="../css/dashboard.css">
   <link rel="stylesheet" href="../css/palpites.css">
 </head>
+
 <body>
 
   <div class="dashboard">
 
     <aside class="sidebar" role="navigation" aria-label="Menu Lateral">
-      <div class="logo">
-        <img src="../images/logo.jpeg" alt="Logotipo Copa Bet" loading="eager">
-      </div>
+      <a href="dashboard.html" class="logo">
+        <img src="../images/logo.jpeg" alt="Copa Bet">
+      </a>
 
       <nav class="menu">
         <a href="dashboard.html">
@@ -137,7 +140,7 @@
         </section>
 
         <section class="history-list-wrapper">
-          
+
           <article class="history-item-card status-green">
             <div class="card-meta-info">
               <span class="match-group-badge">Grupo G • Rodada 1</span>
@@ -302,11 +305,12 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       if (typeof lucide !== 'undefined') {
         lucide.createIcons();
       }
     });
   </script>
 </body>
+
 </html>

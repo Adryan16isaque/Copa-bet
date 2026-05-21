@@ -795,3 +795,17 @@ button {
     flex-wrap: wrap;
   }
 }
+
+.logo {
+  width: fit-content;
+  margin: 0 auto 42px;
+  display: block;
+}
+
+.logo img {
+  display: block;
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  object-fit: cover;
+}

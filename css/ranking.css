@@ -55,12 +55,13 @@ a {
 }
 
 .logo {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 42px;
+  width: fit-content;
+  margin: 0 auto 42px;
+  display: block;
 }
 
 .logo img {
+  display: block;
   width: 62px;
   height: 62px;
   border-radius: 18px;
@@ -108,7 +109,7 @@ a {
   padding: 0 18px;
   border-radius: 14px;
   border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -137,7 +138,7 @@ a {
   height: 46px;
   border-radius: 14px;
   border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--text);
   transition: 0.25s ease;
 }
@@ -172,14 +173,14 @@ a {
   margin-bottom: 30px;
 }
 
-.ranking-hero > div,
+.ranking-hero>div,
 .my-position-card,
 .podium-card,
 .stat-card,
 .ranking-table-card {
   padding: 24px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
 }
 
@@ -237,7 +238,7 @@ a {
   padding-top: 42px;
   background:
     radial-gradient(circle at top, rgba(250, 204, 21, 0.16), transparent 45%),
-    rgba(255,255,255,0.04);
+    rgba(255, 255, 255, 0.04);
 }
 
 .podium-card.second,
@@ -306,7 +307,7 @@ a {
   padding: 10px 14px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--muted);
   font-weight: 600;
   transition: 0.25s ease;
@@ -332,7 +333,7 @@ th,
 td {
   padding: 16px 10px;
   text-align: left;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   white-space: nowrap;
 }
 
@@ -361,7 +362,7 @@ th {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   font-weight: 700;
 }
 
@@ -373,22 +374,22 @@ th {
 }
 
 .badge.elite {
-  background: rgba(250,204,21,0.14);
+  background: rgba(250, 204, 21, 0.14);
   color: var(--yellow);
 }
 
 .badge.diamond {
-  background: rgba(56,189,248,0.14);
+  background: rgba(56, 189, 248, 0.14);
   color: var(--blue);
 }
 
 .badge.gold {
-  background: rgba(0,230,118,0.14);
+  background: rgba(0, 230, 118, 0.14);
   color: var(--green);
 }
 
 .badge.bronze {
-  background: rgba(251,146,60,0.14);
+  background: rgba(251, 146, 60, 0.14);
   color: #fb923c;
 }
 
@@ -504,7 +505,7 @@ th {
     grid-template-columns: 1fr;
   }
 
-  .ranking-hero > div,
+  .ranking-hero>div,
   .my-position-card,
   .podium-card,
   .stat-card,
