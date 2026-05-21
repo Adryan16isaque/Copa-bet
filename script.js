@@ -171,7 +171,7 @@ class Bolao {
 
       ) {
 
-        this.pontuacoes[usuarioId] += 5;
+        this.pontuacoes[usuarioId] += 7;
       }
 
       // EMPATE
@@ -182,7 +182,7 @@ class Bolao {
 
       ) {
 
-        this.pontuacoes[usuarioId] += 3;
+        this.pontuacoes[usuarioId] += 5;
       }
     });
   }
