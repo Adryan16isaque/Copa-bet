@@ -1,4 +1,3 @@
-# Copa-bet
 # 📂 Guia de Branches por Grupo
 
 Cada grupo deve acessar e trabalhar **exclusivamente na sua branch**. Não faça commits na `main` diretamente.
