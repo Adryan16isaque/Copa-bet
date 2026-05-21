@@ -1,0 +1,23 @@
+{
+  "name": "copa-bet-sistema-apostas",
+  "version": "1.0.0",
+  "description": "Copa Bet - Grupo 5 - Sistema de Apostas (branch: sistema-de-apostas)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed": "node src/database/seed.js",
+    "db:reset": "node src/database/seed.js --reset"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "author": "Grupo 5 - Lucas, Daniel, Ygor",
+  "license": "MIT"
+}
