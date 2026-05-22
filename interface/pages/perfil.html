@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Copa Bet - Perfil</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../css/perfil.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <aside class="sidebar">
+
+      <a href="dashboard.html" class="logo">
+        <img src="../images/logo.jpeg" alt="Copa Bet">
+      </a>
+
+      <nav class="menu">
+        <a href="dashboard.html">
+          <i data-lucide="layout-dashboard"></i>
+          Dashboard
+        </a>
+
+        <a href="jogos.html">
+          <i data-lucide="trophy"></i>
+          Jogos
+        </a>
+
+        <a href="palpites.html">
+          <i data-lucide="target"></i>
+          Meus palpites
+        </a>
+
+        <a href="ranking.html">
+          <i data-lucide="bar-chart-3"></i>
+          Ranking
+        </a>
+
+        <a class="active" href="perfil.html">
+          <i data-lucide="user"></i>
+          Perfil
+        </a>
+
+        <a href="admin.html">
+          <i data-lucide="settings"></i>
+          Admin
+        </a>
+
+        <a href="../index.html">
+          <i data-lucide="log-out"></i>
+          Sair
+        </a>
+      </nav>
+
+    </aside>
+
+    <div class="main-area">
+
+      <header class="topbar">
+
+        <div class="search-box">
+          <i data-lucide="search"></i>
+          <input type="text" placeholder="Buscar informações">
+        </div>
+
+        <div class="user-area">
+
+          <button class="icon-btn">
+            <i data-lucide="bell"></i>
+          </button>
+
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Geremias">
+
+            <div>
+              <strong>Geremias</strong>
+              <small>Nível 14 • Especialista</small>
+            </div>
+          </div>
+
+        </div>
+
+      </header>
+
+      <main class="content">
+
+        <section class="profile-banner">
+
+          <div class="profile-left">
+
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Geremias" class="profile-avatar">
+
+            <div class="profile-info">
+
+              <div class="name-row">
+                <h1>Geremias</h1>
+
+                <span class="verified">
+                  <i data-lucide="badge-check"></i>
+                  Premium
+                </span>
+              </div>
+
+              <p>@geremiaspro</p>
+
+              <div class="profile-meta">
+
+                <div>
+                  <span>Ranking Global</span>
+                  <strong>#12</strong>
+                </div>
+
+                <div>
+                  <span>Nível</span>
+                  <strong>18</strong>
+                </div>
+
+                <div>
+                  <span>Pontos</span>
+                  <strong>12.560</strong>
+                </div>
+
+              </div>
+
+              <div class="level-progress">
+
+                <div class="progress-top">
+                  <span>320 pts para o próximo nível</span>
+                  <strong>78%</strong>
+                </div>
+
+                <div class="progress-bar">
+                  <div></div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="profile-actions">
+            <button class="primary-btn">Editar perfil</button>
+            <button class="secondary-btn">Compartilhar</button>
+          </div>
+
+        </section>
+
+        <section class="stats-grid">
+
+          <article class="stat-card">
+            <i data-lucide="target"></i>
+            <strong>324</strong>
+            <span>Total de palpites</span>
+          </article>
+
+          <article class="stat-card">
+            <i data-lucide="activity"></i>
+            <strong>68%</strong>
+            <span>Taxa de acerto</span>
+          </article>
+
+          <article class="stat-card">
+            <i data-lucide="trophy"></i>
+            <strong>42</strong>
+            <span>Placares exatos</span>
+          </article>
+
+          <article class="stat-card">
+            <i data-lucide="flame"></i>
+            <strong>10</strong>
+            <span>Vitórias seguidas</span>
+          </article>
+
+        </section>
+
+        <section class="profile-grid">
+
+          <div class="left-content">
+
+            <article class="panel-card">
+
+              <div class="section-header">
+                <div>
+                  <h2>Desempenho</h2>
+                  <p>Evolução de pontos nas últimas semanas</p>
+                </div>
+              </div>
+
+              <div class="chart-placeholder">
+                <div class="chart-line"></div>
+              </div>
+
+            </article>
+
+            <article class="panel-card">
+
+              <div class="section-header">
+                <div>
+                  <h2>Conquistas</h2>
+                  <p>Badges desbloqueadas pelo jogador</p>
+                </div>
+              </div>
+
+              <div class="badges-grid">
+
+                <div class="badge-card">
+                  🏆
+                  <strong>Top 10 semanal</strong>
+                </div>
+
+                <div class="badge-card">
+                  🔥
+                  <strong>10 vitórias seguidas</strong>
+                </div>
+
+                <div class="badge-card">
+                  🎯
+                  <strong>Placar exato</strong>
+                </div>
+
+                <div class="badge-card">
+                  👑
+                  <strong>Lenda da rodada</strong>
+                </div>
+
+              </div>
+
+            </article>
+
+            <article class="panel-card">
+
+              <div class="section-header">
+                <div>
+                  <h2>Histórico de palpites</h2>
+                  <p>Últimos palpites realizados</p>
+                </div>
+              </div>
+
+              <table>
+
+                <thead>
+                  <tr>
+                    <th>Jogo</th>
+                    <th>Palpite</th>
+                    <th>Resultado</th>
+                    <th>Pontos</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <tr>
+                    <td>Brasil x Alemanha</td>
+                    <td>2 x 1</td>
+                    <td>2 x 1</td>
+                    <td>150 pts</td>
+                    <td>
+                      <span class="status success">Acertou</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Argentina x França</td>
+                    <td>Argentina vence</td>
+                    <td>-</td>
+                    <td>50 pts</td>
+                    <td>
+                      <span class="status waiting">Aguardando</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Portugal x Itália</td>
+                    <td>1 x 2</td>
+                    <td>0 x 1</td>
+                    <td>0 pts</td>
+                    <td>
+                      <span class="status danger">Perdeu</span>
+                    </td>
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+            </article>
+
+          </div>
+
+          <aside class="right-content">
+
+            <article class="panel-card">
+
+              <div class="section-header">
+                <div>
+                  <h2>Favoritos</h2>
+                  <p>Preferências do jogador</p>
+                </div>
+              </div>
+
+              <div class="favorites-list">
+
+                <div class="favorite-card">
+                  <img src="https://flagcdn.com/br.svg" alt="">
+                  <div>
+                    <span>Seleção favorita</span>
+                    <strong>Brasil</strong>
+                  </div>
+                </div>
+
+                <div class="favorite-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" alt="">
+                  <div>
+                    <span>Time favorito</span>
+                    <strong>Real Madrid</strong>
+                  </div>
+                </div>
+
+                <div class="favorite-card">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/thumbnails/044/626/791/small/logo-on-transparent-background-free-vector.jpg"
+                    alt="">
+                  <div>
+                    <span>Campeonato favorito</span>
+                    <strong>Champions League</strong>
+                  </div>
+                </div>
+
+              </div>
+
+            </article>
+
+            <article class="panel-card">
+
+              <div class="section-header">
+                <div>
+                  <h2>Atividade recente</h2>
+                  <p>Últimas ações da conta</p>
+                </div>
+              </div>
+
+              <div class="activity-feed">
+
+                <div class="activity-item">
+                  <div class="dot"></div>
+                  <p>Você acertou Brasil x Alemanha</p>
+                </div>
+
+                <div class="activity-item">
+                  <div class="dot"></div>
+                  <p>Subiu para o Top 10</p>
+                </div>
+
+                <div class="activity-item">
+                  <div class="dot"></div>
+                  <p>Completou missão diária</p>
+                </div>
+
+                <div class="activity-item">
+                  <div class="dot"></div>
+                  <p>Ganhou +150 pontos</p>
+                </div>
+
+              </div>
+
+            </article>
+
+          </aside>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+
+</html>
+```

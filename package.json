@@ -1,0 +1,13 @@
+{
+  "name": "copa-bet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Copa Bet — interface + API de apostas",
+  "scripts": {
+    "setup": "npm install --prefix sistemaApostas/backend && npm run setup --prefix sistemaApostas/backend",
+    "seed": "npm run seed --prefix sistemaApostas/backend",
+    "dev": "npm run dev --prefix sistemaApostas/backend",
+    "start": "npm run start --prefix sistemaApostas/backend",
+    "db:reset": "npm run db:reset --prefix sistemaApostas/backend"
+  }
+}

@@ -101,9 +101,10 @@ POST /api/integration/matches/:id/result      → Registra resultado + pontua (G
 3. A resposta já inclui `username` e `points` por aposta
 
 ### Grupo 2 — Dashboard e Interface
-1. O frontend está em `frontend/index.html`
-2. A API base está em `frontend/assets/js/api.js` (altere `API_BASE_URL` se necessário)
+1. O frontend oficial está em `interface/` (servido pelo backend em http://localhost:3000)
+2. A API base está em `interface/js/api.js` (usa `/api` na mesma origem)
 3. O estado global está em `window.APP_STATE`
+4. A pasta `frontend/` é a UI antiga do Grupo 5 — mantida só como referência
 
 ---
 

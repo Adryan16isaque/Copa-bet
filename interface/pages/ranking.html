@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Copa Bet - Ranking</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../css/ranking.css">
+  <link rel="stylesheet" href="../css/integration.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <aside class="sidebar">
+
+      <a href="dashboard.html" class="logo">
+        <img src="../images/logo.jpeg" alt="Copa Bet">
+      </a>
+
+      <nav class="menu">
+        <a href="dashboard.html">
+          <i data-lucide="layout-dashboard"></i>
+          Dashboard
+        </a>
+
+        <a href="jogos.html">
+          <i data-lucide="trophy"></i>
+          Jogos
+        </a>
+
+        <a href="palpites.html">
+          <i data-lucide="target"></i>
+          Meus palpites
+        </a>
+
+        <a class="active" href="ranking.html">
+          <i data-lucide="bar-chart-3"></i>
+          Ranking
+        </a>
+
+        <a href="perfil.html">
+          <i data-lucide="user"></i>
+          Perfil
+        </a>
+
+        <a href="admin.html">
+          <i data-lucide="settings"></i>
+          Admin
+        </a>
+
+        <a href="../index.html">
+          <i data-lucide="log-out"></i>
+          Sair
+        </a>
+      </nav>
+
+    </aside>
+
+    <div class="main-area">
+
+      <header class="topbar">
+
+        <div class="search-box">
+          <i data-lucide="search"></i>
+          <input type="text" placeholder="Buscar jogador">
+        </div>
+
+        <div class="user-area">
+
+          <button class="icon-btn" aria-label="Notificações">
+            <i data-lucide="bell"></i>
+          </button>
+
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de perfil">
+            <strong>Geremias</strong>
+            <small>Nível 14 • Especialista</small>
+          </div>
+
+        </div>
+
+      </header>
+
+      <main class="content">
+
+        <section class="ranking-hero">
+
+          <div>
+            <span>Ranking geral</span>
+
+            <h1>Veja os melhores jogadores da competição</h1>
+
+            <p>
+              Acompanhe a classificação dos participantes com base nos pontos e acertos dos palpites.
+            </p>
+          </div>
+
+          <article class="my-position-card">
+            <span>Sua posição</span>
+            <strong>8º</strong>
+            <p>Você está com 42 pontos no ranking geral.</p>
+          </article>
+
+        </section>
+
+        <section class="podium-section">
+
+          <article class="podium-card second">
+            <span class="medal">🥈</span>
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="PaiDoPalpite">
+            <h3>PaiDoPalpite</h3>
+            <strong>82 pts</strong>
+            <p>7 acertos</p>
+          </article>
+
+          <article class="podium-card first">
+            <span class="medal">👑</span>
+            <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="CraqueDoHexa">
+            <h3>CraqueDoHexa</h3>
+            <strong>96 pts</strong>
+            <p>9 acertos</p>
+          </article>
+
+          <article class="podium-card third">
+            <span class="medal">🥉</span>
+            <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="MestreDaZebra">
+            <h3>MestreDaZebra</h3>
+            <strong>74 pts</strong>
+            <p>6 acertos</p>
+          </article>
+
+        </section>
+
+        <section class="stats-grid">
+
+          <article class="stat-card">
+            <span>Maior pontuação</span>
+            <strong>96 pts</strong>
+            <p>CraqueDoHexa lidera a competição</p>
+          </article>
+
+          <article class="stat-card">
+            <span>Maior número de acertos</span>
+            <strong>9</strong>
+            <p>Melhor desempenho até agora</p>
+          </article>
+
+          <article class="stat-card">
+            <span>Participantes</span>
+            <strong>10</strong>
+            <p>Jogadores no ranking geral</p>
+          </article>
+
+          <article class="stat-card highlight">
+            <span>Status</span>
+            <strong>Ao vivo</strong>
+            <p>Ranking atualizado após os resultados</p>
+          </article>
+
+        </section>
+
+        <section class="ranking-table-card">
+
+          <div class="section-header">
+
+            <div>
+              <h2>Classificação completa</h2>
+              <p>Confira a posição dos jogadores no ranking geral.</p>
+            </div>
+
+            <div class="filters">
+              <button class="active" type="button">Geral</button>
+              <button type="button">Semana</button>
+              <button type="button">Mês</button>
+            </div>
+
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Posição</th>
+                <th>Jogador</th>
+                <th>Pontos</th>
+                <th>Acertos</th>
+                <th>Desempenho</th>
+                <th>Sequência</th>
+                <th>Divisão</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td><span class="position">1º</span></td>
+                <td class="player">
+                  <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
+                  CraqueDoHexa
+                </td>
+                <td>96 pts</td>
+                <td>9</td>
+                <td>Excelente</td>
+                <td>🔥 5</td>
+                <td><span class="badge elite">Elite</span></td>
+              </tr>
+
+              <tr>
+                <td><span class="position">2º</span></td>
+                <td class="player">
+                  <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
+                  PaiDoPalpite
+                </td>
+                <td>82 pts</td>
+                <td>7</td>
+                <td>Muito bom</td>
+                <td>🔥 4</td>
+                <td><span class="badge diamond">Diamante</span></td>
+              </tr>
+
+              <tr>
+                <td><span class="position">3º</span></td>
+                <td class="player">
+                  <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="">
+                  MestreDaZebra
+                </td>
+                <td>74 pts</td>
+                <td>6</td>
+                <td>Muito bom</td>
+                <td>🔥 3</td>
+                <td><span class="badge diamond">Diamante</span></td>
+              </tr>
+
+              <tr>
+                <td><span class="position">4º</span></td>
+                <td class="player">
+                  <img src="https://randomuser.me/api/portraits/men/29.jpg" alt="">
+                  VarzeaFC
+                </td>
+                <td>63 pts</td>
+                <td>5</td>
+                <td>Bom</td>
+                <td>🔥 3</td>
+                <td><span class="badge gold">Ouro</span></td>
+              </tr>
+
+              <tr>
+                <td><span class="position">5º</span></td>
+                <td class="player">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+                  ReiDoEmpate
+                </td>
+                <td>58 pts</td>
+                <td>4</td>
+                <td>Bom</td>
+                <td>🔥 2</td>
+                <td><span class="badge gold">Ouro</span></td>
+              </tr>
+
+              <tr>
+                <td><span class="position">6º</span></td>
+                <td class="player">
+                  <img src="https://randomuser.me/api/portraits/men/58.jpg" alt="">
+                  TioDoGol
+                </td>
+                <td>51 pts</td>
+                <td>4</td>
+                <td>Bom</td>
+                <td>🔥 2</td>
+                <td><span class="badge gold">Ouro</span></td>
+              </tr>
+
+              <tr>
+                <td><span class="position">7º</span></td>
+                <td class="player">
+                  <img src="https://randomuser.me/api/portraits/women/36.jpg" alt="">
+                  CanelaFC
+                </td>
+                <td>47 pts</td>
+                <td>3</td>
+                <td>Regular</td>
+                <td>🔥 1</td>
+                <td><span class="badge bronze">Bronze</span></td>
+              </tr>
+
+              <tr class="current-user">
+                <td><span class="position">8º</span></td>
+                <td class="player">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                  Geremias
+                </td>
+                <td>42 pts</td>
+                <td>3</td>
+                <td>Regular</td>
+                <td>🔥 1</td>
+                <td><span class="badge bronze">Bronze</span></td>
+              </tr>
+
+              <tr>
+                <td><span class="position">9º</span></td>
+                <td class="player">
+                  <img src="https://randomuser.me/api/portraits/men/63.jpg" alt="">
+                  AntiZika
+                </td>
+                <td>36 pts</td>
+                <td>2</td>
+                <td>Regular</td>
+                <td>—</td>
+                <td><span class="badge bronze">Bronze</span></td>
+              </tr>
+
+              <tr>
+                <td><span class="position">10º</span></td>
+                <td class="player">
+                  <img src="https://randomuser.me/api/portraits/women/51.jpg" alt="">
+                  ProfessorDoVAR
+                </td>
+                <td>28 pts</td>
+                <td>2</td>
+                <td>Iniciante</td>
+                <td>—</td>
+                <td><span class="badge bronze">Bronze</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/helpers.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/ranking.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Copa Bet - Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/integration.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <aside class="sidebar">
+
+      <a href="dashboard.html" class="logo">
+        <img src="../images/logo.jpeg" alt="Copa Bet">
+      </a>
+
+      <nav class="menu">
+        <a class="active" href="dashboard.html">
+          <i data-lucide="layout-dashboard"></i>
+          Dashboard
+        </a>
+
+        <a href="jogos.html">
+          <i data-lucide="trophy"></i>
+          Jogos
+        </a>
+
+        <a href="palpites.html">
+          <i data-lucide="target"></i>
+          Meus palpites
+        </a>
+
+        <a href="ranking.html">
+          <i data-lucide="bar-chart-3"></i>
+          Ranking
+        </a>
+
+        <a href="perfil.html">
+          <i data-lucide="user"></i>
+          Perfil
+        </a>
+
+        <a href="admin.html">
+          <i data-lucide="settings"></i>
+          Admin
+        </a>
+
+        <a href="../index.html">
+          <i data-lucide="log-out"></i>
+          Sair
+        </a>
+      </nav>
+
+      <div class="mission-card">
+        <div class="mission-header">
+          <i data-lucide="sparkles" class="neon-icon"></i>
+          <span>Missão do dia</span>
+        </div>
+        <strong>Faça 3 palpites na rodada</strong>
+        <p>2 de 3 concluídos</p>
+        <div class="progress" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 66.6%;"></div>
+        </div>
+        <small>Bónus: <span class="highlight-neon">+100 pts</span></small>
+      </div>
+
+    </aside>
+
+    <div class="main-area">
+
+      <header class="topbar">
+
+        <div class="search-box">
+          <i data-lucide="search"></i>
+
+          <input type="text" placeholder="Buscar jogos ou seleções">
+        </div>
+
+        <div class="user-area">
+
+          <button class="icon-btn" aria-label="Notificações">
+            <i data-lucide="bell"></i>
+          </button>
+
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de perfil">
+
+            <div>
+              <strong>Geremias</strong>
+              <small>Nível 14 • Especialista</small>
+            </div>
+          </div>
+
+        </div>
+
+      </header>
+
+      <main class="content">
+
+        <section class="welcome">
+
+          <div>
+            <span>Dashboard</span>
+
+            <h1>Bem-vindo de volta 👋</h1>
+
+            <p>
+              Acompanhe seus palpites, pontos e desempenho na competição.
+            </p>
+          </div>
+
+        </section>
+
+        <section class="stats-grid">
+
+          <article class="stat-card">
+            <span>Meus pontos</span>
+            <strong data-stat="points">—</strong>
+            <p>Pontuação acumulada nas apostas</p>
+          </article>
+
+          <article class="stat-card">
+            <span>Palpites ativos</span>
+            <strong data-stat="active-bets">—</strong>
+            <p>Partidas aguardando resultado</p>
+          </article>
+
+          <article class="stat-card">
+            <span>Taxa de acerto</span>
+            <strong data-stat="hit-rate">—</strong>
+            <p>Com base em palpites já pontuados</p>
+          </article>
+
+          <article class="stat-card highlight">
+            <span>Ranking geral</span>
+            <strong data-stat="rank">—</strong>
+            <p>Sua posição na competição</p>
+          </article>
+
+        </section>
+
+        <section class="dashboard-grid">
+
+          <div class="left-content">
+
+            <div class="section-header">
+              <div>
+                <h2>Próximos jogos</h2>
+
+                <p>
+                  Escolha o resultado ou tente acertar o placar exato.
+                </p>
+              </div>
+
+              <a href="jogos.html">Ver todos</a>
+            </div>
+
+            <div class="matches-grid" id="dashboard-matches-grid">
+              <p class="copa-state-msg">Carregando partidas...</p>
+            </div>
+
+            <div class="table-card">
+
+              <div class="section-header">
+                <div>
+                  <h2>Meus palpites</h2>
+
+                  <p>
+                    Veja os palpites que você já registrou.
+                  </p>
+                </div>
+
+                <a href="palpites.html">Ver histórico</a>
+              </div>
+
+              <table id="dashboard-bets-table">
+                <thead>
+                  <tr>
+                    <th>Jogo</th>
+                    <th>Palpite</th>
+                    <th>Tipo</th>
+                    <th>Pontos possíveis</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr><td colspan="5">Carregando...</td></tr>
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+
+          <aside class="right-content">
+
+            <article class="panel-card points-card">
+              <span>Sistema de pontuação</span>
+
+              <h2>Como ganhar pontos?</h2>
+
+              <div class="points-list">
+                <div>
+                  <strong>+50 pts</strong>
+                  <p>Acertar o resultado</p>
+                </div>
+
+                <div>
+                  <strong>+150 pts</strong>
+                  <p>Acertar o placar exato</p>
+                </div>
+
+                <div>
+                  <strong>+100 pts</strong>
+                  <p>Completar missão diária</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel-card">
+
+              <div class="section-header">
+                <div>
+                  <h2>Top ranking</h2>
+                  <p>Melhores jogadores da rodada.</p>
+                </div>
+              </div>
+
+              <ul class="ranking-list" id="dashboard-top-ranking">
+                <li><span class="copa-state-msg">Carregando ranking...</span></li>
+              </ul>
+
+            </article>
+
+          </aside>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/helpers.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

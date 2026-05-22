@@ -7,10 +7,15 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "seed": "node src/database/seed.js",
-    "db:reset": "node src/database/seed.js --reset"
+    "db:reset": "node src/database/seed.js --reset",
+    "setup": "node scripts/setup.js",
+    "postinstall": "npm rebuild better-sqlite3 || echo \"Aviso: rebuild do SQLite falhou — rode npm rebuild better-sqlite3 manualmente\""
+  },
+  "engines": {
+    "node": ">=18"
   },
   "dependencies": {
-    "better-sqlite3": "^9.4.3",
+    "better-sqlite3": "^11.8.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.18.3"

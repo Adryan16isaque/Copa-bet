@@ -6,6 +6,7 @@
 const express     = require('express');
 const cors        = require('cors');
 const env         = require('./config/env');
+const { frontendDir } = require('./config/paths');
 
 // Rotas
 const matchesRoutes     = require('./routes/matchesRoutes');
@@ -24,6 +25,12 @@ const app = express();
 app.use(cors({ origin: env.CORS_ORIGIN }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Interface oficial: copaBet/interface/
+app.use(express.static(frontendDir));
+app.get('/', (_req, res) => {
+  res.sendFile(path.join(frontendDir, 'index.html'));
+});
 
 // Log de requests em desenvolvimento
 if (env.isDev()) {

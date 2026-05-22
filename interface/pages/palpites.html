@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copa Bet - Histórico de Palpites</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
+
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/palpites.css">
+  <link rel="stylesheet" href="../css/integration.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <aside class="sidebar" role="navigation" aria-label="Menu Lateral">
+      <a href="dashboard.html" class="logo">
+        <img src="../images/logo.jpeg" alt="Copa Bet">
+      </a>
+
+      <nav class="menu">
+        <a href="dashboard.html">
+          <i data-lucide="layout-dashboard"></i>
+          Dashboard
+        </a>
+
+        <a href="jogos.html">
+          <i data-lucide="trophy"></i>
+          Jogos
+        </a>
+
+        <a class="active" href="palpites.html">
+          <i data-lucide="target"></i>
+          Meus palpites
+        </a>
+
+        <a href="ranking.html">
+          <i data-lucide="bar-chart-3"></i>
+          Ranking
+        </a>
+
+        <a href="perfil.html">
+          <i data-lucide="user"></i>
+          Perfil
+        </a>
+
+        <a href="admin.html">
+          <i data-lucide="settings"></i>
+          Admin
+        </a>
+
+        <a href="../index.html">
+          <i data-lucide="log-out"></i>
+          Sair
+        </a>
+      </nav>
+
+      <div class="mission-card">
+        <div class="mission-header">
+          <i data-lucide="sparkles" class="neon-icon"></i>
+          <span>Missão do dia</span>
+        </div>
+        <strong>Faça 3 palpites na rodada</strong>
+        <p>2 de 3 concluídos</p>
+        <div class="progress" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 66.6%;"></div>
+        </div>
+        <small>Bónus: <span class="highlight-neon">+100 pts</span></small>
+      </div>
+    </aside>
+
+    <div class="main-area">
+
+      <header class="topbar">
+        <div class="search-box">
+          <i data-lucide="search" aria-hidden="true"></i>
+          <input type="search" placeholder="Buscar por seleção, resultado ou status..." aria-label="Buscar palpites">
+        </div>
+
+        <div class="user-area">
+          <button class="icon-btn" aria-label="Notificações">
+            <i data-lucide="bell" aria-hidden="true"></i>
+            <span class="notification-badge"></span>
+          </button>
+
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de Perfil" loading="lazy">
+            <div class="profile-info">
+              <strong>Geremias</strong>
+              <small>Nível 14 • Especialista</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+
+        <section class="section-header-main" aria-labelledby="history-title">
+          <div>
+            <span class="sub-badge">Performance Global</span>
+            <h1 id="history-title">Histórico de Palpites</h1>
+            <p>Monitore suas previsões submetidas, resultados oficiais e eficiência de pontuação.</p>
+          </div>
+
+          <nav class="history-tabs" aria-label="Filtro de palpites">
+            <ul>
+              <li><button class="tab-btn active">TODOS (42)</button></li>
+              <li><button class="tab-btn match-green">ACERTOS (28)</button></li>
+              <li><button class="tab-btn match-red">ERROS (11)</button></li>
+              <li><button class="tab-btn match-yellow">PENDENTES (3)</button></li>
+            </ul>
+          </nav>
+        </section>
+
+        <section class="metrics-summary-grid">
+          <div class="metric-mini-card">
+            <span class="metric-label">Taxa de Acerto</span>
+            <strong class="metric-value text-neon" data-metric="hit-rate">—</strong>
+            <span class="metric-sub">Acima da média global</span>
+          </div>
+          <div class="metric-mini-card">
+            <span class="metric-label">Pontos Conquistados</span>
+            <strong class="metric-value" data-metric="total-points">—</strong>
+            <span class="metric-sub">+350 esta semana</span>
+          </div>
+          <div class="metric-mini-card">
+            <span class="metric-label">Maior Green Streak</span>
+            <strong class="metric-value text-yellow" data-metric="streak">—</strong>
+            <span class="metric-sub">Racha histórica alcançada</span>
+          </div>
+        </section>
+
+        <section class="history-list-wrapper" id="palpites-history-root">
+          <p class="copa-state-msg">Carregando histórico...</p>
+          <article class="history-item-card status-green" hidden aria-hidden="true">
+            <div class="card-meta-info">
+              <span class="match-group-badge">Grupo G • Rodada 1</span>
+              <time class="match-date-stamp">13 Jun 2026</time>
+            </div>
+
+            <div class="confrontation-row">
+              <div class="team-side home">
+                <img src="https://flagcdn.com/br.svg" alt="Brasil" class="flag-mini">
+                <span class="team-name">Brasil</span>
+              </div>
+
+              <div class="official-score-box">
+                <span class="score-num">2</span>
+                <span class="score-divider">x</span>
+                <span class="score-num">1</span>
+                <small class="score-label">Resultado Real</small>
+              </div>
+
+              <div class="team-side away">
+                <span class="team-name">Marrocos</span>
+                <img src="https://flagcdn.com/ma.svg" alt="Marrocos" class="flag-mini">
+              </div>
+            </div>
+
+            <div class="prediction-details-footer">
+              <div class="user-prediction-data">
+                <span class="footer-label">Seu Palpite:</span>
+                <strong class="prediction-value">Brasil (2) x (1) Marrocos</strong>
+              </div>
+              <div class="reward-status-block">
+                <span class="points-badge">+400 PTS</span>
+                <span class="status-badge tag-green">
+                  <i data-lucide="check-circle" class="status-icon"></i> Acertou Placar
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="history-item-card status-red">
+            <div class="card-meta-info">
+              <span class="match-group-badge">Grupo A • Rodada 1</span>
+              <time class="match-date-stamp">11 Jun 2026</time>
+            </div>
+
+            <div class="confrontation-row">
+              <div class="team-side home">
+                <img src="https://flagcdn.com/mx.svg" alt="México" class="flag-mini">
+                <span class="team-name">México</span>
+              </div>
+
+              <div class="official-score-box">
+                <span class="score-num">0</span>
+                <span class="score-divider">x</span>
+                <span class="score-num">2</span>
+                <small class="score-label">Resultado Real</small>
+              </div>
+
+              <div class="team-side away">
+                <span class="team-name">França</span>
+                <img src="https://flagcdn.com/fr.svg" alt="França" class="flag-mini">
+              </div>
+            </div>
+
+            <div class="prediction-details-footer">
+              <div class="user-prediction-data">
+                <span class="footer-label">Seu Palpite:</span>
+                <strong class="prediction-value text-dim">México (1) x (1) França</strong>
+              </div>
+              <div class="reward-status-block">
+                <span class="points-badge zero-points">0 PTS</span>
+                <span class="status-badge tag-red">
+                  <i data-lucide="x-circle" class="status-icon"></i> Errou
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="history-item-card status-partial">
+            <div class="card-meta-info">
+              <span class="match-group-badge">Grupo C • Rodada 1</span>
+              <time class="match-date-stamp">12 Jun 2026</time>
+            </div>
+
+            <div class="confrontation-row">
+              <div class="team-side home">
+                <img src="https://flagcdn.com/ar.svg" alt="Argentina" class="flag-mini">
+                <span class="team-name">Argentina</span>
+              </div>
+
+              <div class="official-score-box">
+                <span class="score-num">3</span>
+                <span class="score-divider">x</span>
+                <span class="score-num">1</span>
+                <small class="score-label">Resultado Real</small>
+              </div>
+
+              <div class="team-side away">
+                <span class="team-name">Suécia</span>
+                <img src="https://flagcdn.com/se.svg" alt="Suécia" class="flag-mini">
+              </div>
+            </div>
+
+            <div class="prediction-details-footer">
+              <div class="user-prediction-data">
+                <span class="footer-label">Seu Palpite:</span>
+                <strong class="prediction-value">Argentina (1) x (0) Suécia</strong>
+              </div>
+              <div class="reward-status-block">
+                <span class="points-badge">+150 PTS</span>
+                <span class="status-badge tag-partial">
+                  <i data-lucide="trending-up" class="status-icon"></i> Acertou Vencedor
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="history-item-card status-pending">
+            <div class="card-meta-info">
+              <span class="match-group-badge">Grupo G • Rodada 2</span>
+              <time class="match-date-stamp">Hoje • 20:00</time>
+            </div>
+
+            <div class="confrontation-row">
+              <div class="team-side home">
+                <img src="https://flagcdn.com/br.svg" alt="Brasil" class="flag-mini">
+                <span class="team-name">Brasil</span>
+              </div>
+
+              <div class="official-score-box pending-box">
+                <span class="live-indicator">LIVE</span>
+                <span class="score-num">-</span>
+                <span class="score-divider">x</span>
+                <span class="score-num">-</span>
+                <small class="score-label">Aguardando Fim</small>
+              </div>
+
+              <div class="team-side away">
+                <span class="team-name">Haiti</span>
+                <img src="https://flagcdn.com/ht.svg" alt="Haiti" class="flag-mini">
+              </div>
+            </div>
+
+            <div class="prediction-details-footer">
+              <div class="user-prediction-data">
+                <span class="footer-label">Seu Palpite enviado:</span>
+                <strong class="prediction-value text-yellow">Brasil (7) x (1) Haiti</strong>
+              </div>
+              <div class="reward-status-block">
+                <span class="points-badge pending-points">???</span>
+                <span class="status-badge tag-yellow">
+                  <i data-lucide="clock" class="status-icon"></i> Pendente
+                </span>
+              </div>
+            </div>
+          </article>
+
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/helpers.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/palpites.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,891 @@
+/* ==========================================================================
+   COPA BET - PERFIL PREMIUM (PADRÃO VISUAL GLOBAL)
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #030806;
+  --surface: #07130f;
+  --surface-2: #0b1c15;
+
+  --green: #00e676;
+  --green-soft: rgba(0, 230, 118, 0.12);
+
+  --yellow: #facc15;
+
+  --text: #f8fafc;
+  --muted: #9ca3af;
+
+  --border: rgba(0, 230, 118, 0.16);
+
+  --card-gradient:
+    linear-gradient(
+      135deg,
+      rgba(7, 19, 15, 0.78) 0%,
+      rgba(3, 10, 8, 0.96) 100%
+    );
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+body {
+  font-family: "Poppins", sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(0, 230, 118, 0.1),
+      transparent 30%
+    ),
+    var(--bg);
+
+  color: var(--text);
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+
+.dashboard {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+}
+
+/* ==========================================================================
+   SIDEBAR
+   ========================================================================== */
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  padding: 24px;
+
+  background: rgba(2, 12, 8, 0.96);
+
+  border-right: 1px solid var(--border);
+}
+
+.logo {
+  width: fit-content;
+  margin: 0 auto 42px;
+  display: block;
+}
+
+.logo img {
+  display: block;
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.menu {
+  display: grid;
+  gap: 10px;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 16px;
+
+  border-radius: 14px;
+
+  color: var(--muted);
+
+  transition: 0.25s ease;
+}
+
+.menu a:hover,
+.menu a.active {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.menu a:hover {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   TOPBAR
+   ========================================================================== */
+
+.topbar {
+  height: 82px;
+
+  padding: 0 32px;
+
+  border-bottom: 1px solid var(--border);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+.search-box {
+  width: 420px;
+  height: 50px;
+
+  padding: 0 18px;
+
+  border-radius: 14px;
+
+  border: 1px solid var(--border);
+
+  background: rgba(255, 255, 255, 0.03);
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  transition: 0.25s ease;
+}
+
+.search-box:focus-within {
+  border-color: rgba(0, 230, 118, 0.35);
+
+  box-shadow:
+    0 0 0 3px rgba(0, 230, 118, 0.08);
+}
+
+.search-box input {
+  width: 100%;
+
+  background: transparent;
+  border: 0;
+  outline: 0;
+
+  color: var(--text);
+}
+
+.search-box input::placeholder {
+  color: var(--muted);
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.icon-btn {
+  width: 46px;
+  height: 46px;
+
+  border-radius: 14px;
+
+  border: 1px solid var(--border);
+
+  background: rgba(255, 255, 255, 0.03);
+
+  color: var(--text);
+
+  transition: 0.25s ease;
+}
+
+.icon-btn:hover {
+  background: var(--green-soft);
+  color: var(--green);
+
+  border-color: rgba(0, 230, 118, 0.35);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-profile img {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 2px solid var(--green);
+}
+
+/* ==========================================================================
+   CONTENT
+   ========================================================================== */
+
+.content {
+  padding: 32px;
+
+  display: grid;
+  gap: 28px;
+}
+
+/* ==========================================================================
+   PROFILE HERO
+   ========================================================================== */
+
+.profile-banner {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+
+  padding: 30px;
+
+  border-radius: 24px;
+
+  background: var(--card-gradient);
+
+  border: 1px solid var(--border);
+
+  backdrop-filter: blur(12px);
+
+  animation: fadeUp 0.45s ease;
+}
+
+.profile-left {
+  display: flex;
+  gap: 26px;
+}
+
+.profile-avatar {
+  width: 130px;
+  height: 130px;
+
+  border-radius: 28px;
+  object-fit: cover;
+
+  border: 3px solid var(--green);
+
+  box-shadow:
+    0 0 30px rgba(0, 230, 118, 0.16);
+}
+
+.profile-info h1 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.verified {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  background: var(--green-soft);
+
+  color: var(--green);
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.profile-info p {
+  color: var(--muted);
+
+  margin: 6px 0 20px;
+}
+
+.profile-meta {
+  display: flex;
+  gap: 32px;
+
+  margin-bottom: 24px;
+}
+
+.profile-meta span {
+  display: block;
+
+  color: var(--muted);
+
+  margin-bottom: 4px;
+}
+
+.profile-meta strong {
+  font-size: 1.2rem;
+}
+
+.level-progress {
+  max-width: 420px;
+}
+
+.progress-top {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+.progress-top span {
+  color: var(--muted);
+}
+
+.progress-bar {
+  height: 10px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  overflow: hidden;
+}
+
+.progress-bar div {
+  width: 78%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00e676,
+      #00c853
+    );
+
+  box-shadow:
+    0 0 18px rgba(0, 230, 118, 0.35);
+}
+
+.profile-actions {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.primary-btn,
+.secondary-btn {
+  padding: 14px 18px;
+
+  border-radius: 14px;
+
+  font-weight: 700;
+
+  transition: 0.25s ease;
+}
+
+.primary-btn {
+  background: var(--green);
+
+  color: #032014;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 24px rgba(0, 230, 118, 0.18);
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.04);
+
+  color: var(--text);
+
+  border: 1px solid var(--border);
+}
+
+.secondary-btn:hover {
+  background: var(--green-soft);
+
+  color: var(--green);
+}
+
+/* ==========================================================================
+   STATS
+   ========================================================================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.stat-card {
+  padding: 24px;
+
+  border-radius: 20px;
+
+  background: var(--card-gradient);
+
+  border: 1px solid var(--border);
+
+  transition: 0.25s ease;
+
+  backdrop-filter: blur(12px);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(0, 230, 118, 0.35);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.stat-card i {
+  color: var(--green);
+
+  margin-bottom: 18px;
+}
+
+.stat-card strong {
+  display: block;
+
+  font-size: 2rem;
+
+  margin-bottom: 6px;
+
+  color: var(--green);
+}
+
+.stat-card span {
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   GRID
+   ========================================================================== */
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+
+  gap: 24px;
+}
+
+.left-content,
+.right-content {
+  display: grid;
+  gap: 24px;
+
+  align-content: start;
+}
+
+/* ==========================================================================
+   PANELS
+   ========================================================================== */
+
+.panel-card {
+  padding: 24px;
+
+  border-radius: 22px;
+
+  background: var(--card-gradient);
+
+  border: 1px solid var(--border);
+
+  backdrop-filter: blur(12px);
+
+  transition: 0.25s ease;
+}
+
+.panel-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(0, 230, 118, 0.35);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.section-header {
+  margin-bottom: 22px;
+}
+
+.section-header h2 {
+  margin-bottom: 4px;
+}
+
+.section-header p {
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   CHART
+   ========================================================================== */
+
+.chart-placeholder {
+  height: 260px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 230, 118, 0.03),
+      transparent
+    ),
+    rgba(255, 255, 255, 0.02);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.chart-line {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 230, 118, 0.08) 100%
+    );
+}
+
+.chart-line::before {
+  content: "";
+
+  position: absolute;
+
+  left: 5%;
+  top: 55%;
+
+  width: 90%;
+  height: 4px;
+
+  border-radius: 999px;
+
+  background: var(--green);
+
+  transform: rotate(-8deg);
+
+  box-shadow:
+    0 0 18px rgba(0, 230, 118, 0.35);
+}
+
+/* ==========================================================================
+   BADGES
+   ========================================================================== */
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 16px;
+}
+
+.badge-card {
+  padding: 20px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  display: grid;
+  gap: 10px;
+
+  place-items: center;
+
+  text-align: center;
+
+  transition: 0.25s ease;
+}
+
+.badge-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(0, 230, 118, 0.25);
+
+  background: rgba(0, 230, 118, 0.03);
+}
+
+/* ==========================================================================
+   TABLE
+   ========================================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 16px 10px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  text-align: left;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.status {
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.status.success {
+  background: rgba(0, 230, 118, 0.12);
+  color: var(--green);
+}
+
+.status.waiting {
+  background: rgba(250, 204, 21, 0.12);
+  color: var(--yellow);
+}
+
+.status.danger {
+  background: rgba(255, 0, 76, 0.12);
+  color: #ff4d6d;
+}
+
+/* ==========================================================================
+   FAVORITES
+   ========================================================================== */
+
+.favorites-list {
+  display: grid;
+  gap: 16px;
+}
+
+.favorite-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 16px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.04);
+
+  transition: 0.25s ease;
+}
+
+.favorite-card:hover {
+  border-color: rgba(0, 230, 118, 0.2);
+
+  background: rgba(0, 230, 118, 0.03);
+}
+
+.favorite-card img {
+  width: 52px;
+  height: 52px;
+
+  object-fit: contain;
+}
+
+.favorite-card span {
+  display: block;
+
+  color: var(--muted);
+
+  margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   ACTIVITY
+   ========================================================================== */
+
+.activity-feed {
+  display: grid;
+  gap: 18px;
+}
+
+.activity-item {
+  display: flex;
+  gap: 14px;
+
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  box-shadow:
+    0 0 12px rgba(0, 230, 118, 0.45);
+
+  flex-shrink: 0;
+}
+
+.activity-item p {
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   ANIMATION
+   ========================================================================== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 1024px) {
+
+  .dashboard {
+    grid-template-columns: 90px 1fr;
+  }
+
+  .sidebar {
+    padding: 20px 14px;
+  }
+
+  .menu a {
+    justify-content: center;
+    font-size: 0;
+  }
+
+  .menu a i {
+    width: 22px;
+    height: 22px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .dashboard {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+  }
+
+  .topbar {
+    flex-direction: column;
+
+    height: auto;
+
+    padding: 18px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .profile-banner {
+    flex-direction: column;
+  }
+
+  .profile-left {
+    flex-direction: column;
+  }
+
+  .profile-meta {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .badges-grid {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    min-width: 700px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .content {
+    padding: 16px;
+  }
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .stat-card strong {
+    font-size: 1.6rem;
+  }
+
+}

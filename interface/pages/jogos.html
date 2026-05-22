@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copa Bet - Jogos e Estatísticas Avançadas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
+
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/jogos.css">
+  <link rel="stylesheet" href="../css/integration.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <aside class="sidebar" role="navigation" aria-label="Menu Lateral">
+      <a href="dashboard.html" class="logo">
+        <img src="../images/logo.jpeg" alt="Copa Bet">
+      </a>
+
+      <nav class="menu">
+        <a href="dashboard.html">
+          <i data-lucide="layout-dashboard"></i>
+          Dashboard
+        </a>
+
+        <a class="active" href="jogos.html">
+          <i data-lucide="trophy"></i>
+          Jogos
+        </a>
+
+        <a href="palpites.html">
+          <i data-lucide="target"></i>
+          Meus palpites
+        </a>
+
+        <a href="ranking.html">
+          <i data-lucide="bar-chart-3"></i>
+          Ranking
+        </a>
+
+        <a href="perfil.html">
+          <i data-lucide="user"></i>
+          Perfil
+        </a>
+
+        <a href="admin.html">
+          <i data-lucide="settings"></i>
+          Admin
+        </a>
+
+        <a href="../index.html">
+          <i data-lucide="log-out"></i>
+          Sair
+        </a>
+      </nav>
+
+      <div class="mission-card">
+        <div class="mission-header">
+          <i data-lucide="sparkles" class="neon-icon"></i>
+          <span>Missão do dia</span>
+        </div>
+        <strong>Faça 3 palpites na rodada</strong>
+        <p>2 de 3 concluídos</p>
+        <div class="progress" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 66.6%;"></div>
+        </div>
+        <small>Bónus: <span class="highlight-neon">+100 pts</span></small>
+      </div>
+
+    </aside>
+
+    <div class="main-area">
+
+      <header class="topbar">
+        <div class="search-box">
+          <i data-lucide="search" aria-hidden="true"></i>
+          <input type="search" placeholder="Buscar jogos, seleções ou estádios..." aria-label="Buscar partidas">
+        </div>
+
+        <div class="user-area">
+          <button class="icon-btn" aria-label="Notificações">
+            <i data-lucide="bell" aria-hidden="true"></i>
+            <span class="notification-badge"></span>
+          </button>
+
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de Perfil" loading="lazy"
+              decoding="async">
+            <div class="profile-info">
+              <strong>Geremias</strong>
+              <small>Nível 14 • Especialista</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+
+        <section class="section-header-main" aria-labelledby="page-title">
+          <div>
+            <span class="sub-badge">Fase de Grupos • FIFA World Cup 2026</span>
+            <h1 id="page-title">Próximos Confrontos</h1>
+            <p>Estatísticas H2H comparativas em tempo real integradas no padrão SofaScore Pro.</p>
+          </div>
+
+          <nav class="date-tabs" aria-label="Navegação de datas">
+            <ul>
+              <li><button class="tab-btn active" aria-selected="true">SÁB, 13/06</button></li>
+              <li><button class="tab-btn" aria-selected="false">SEX, 19/06</button></li>
+              <li><button class="tab-btn" aria-selected="false">QUA, 24/06</button></li>
+              <li><button class="tab-btn" aria-selected="false">VER TODOS</button></li>
+            </ul>
+          </nav>
+        </section>
+
+        <div class="dashboard-grid">
+
+          <div class="left-content" id="jogos-matches-root">
+            <section class="round-group" aria-hidden="true" style="display:none">
+              <h2 id="round-1-date" class="date-divider">Sábado, 13 de Junho de 2026</h2>
+
+              <div class="match-analytics-wrapper">
+
+                <article class="match-card">
+                  <div class="match-stage">Grupo G • Rodada 1</div>
+
+                  <div class="teams-display">
+                    <div class="team-block">
+                      <img src="https://flagcdn.com/br.svg" alt="Bandeira do Brasil" class="flag-icon" loading="lazy"
+                        decoding="async">
+                      <strong>Brasil</strong>
+                    </div>
+
+                    <div class="match-details-block">
+                      <time class="match-time">16:00</time>
+                      <span class="stadium-name">MetLife Stadium<br><small>Nova York / NJ</small></span>
+                    </div>
+
+                    <div class="team-block">
+                      <img src="https://flagcdn.com/ma.svg" alt="Bandeira de Marrocos" class="flag-icon" loading="lazy"
+                        decoding="async">
+                      <strong>Marrocos</strong>
+                    </div>
+                  </div>
+
+                  <div class="historical-badge">
+                    <span class="badge-title">Histórico Geral (Últimos Confrontos)</span>
+                    <div class="badge-row">
+                      <span class="flag-code">BR</span>
+                      <strong class="score-trend-label">1 - 2</strong>
+                      <span class="flag-code">MA</span>
+                    </div>
+                    <button class="btn-action-trigger">REGISTRAR PALPITE</button>
+                  </div>
+                </article>
+
+                <article class="sofascore-stats-card" aria-label="Estatísticas do Confronto Brasil x Marrocos">
+                  <div class="stats-tabs-header">
+                    <button class="stats-tab-btn" type="button">H2H</button>
+                    <button class="stats-tab-btn active" type="button" aria-current="true">ESTATÍSTICAS</button>
+                    <button class="stats-tab-btn" type="button">CLASSIFICAÇÃO</button>
+                    <button class="stats-tab-btn" type="button">ODDS</button>
+                  </div>
+
+                  <div class="stats-content-body">
+                    <h3 class="stats-category-title">Gols & Desempenho Recente</h3>
+
+                    <div class="sofascore-metric-block">
+                      <div class="sofascore-row">
+                        <div class="metric-row-header">
+                          <span class="team-val home-highlight">2.2</span>
+                          <span class="metric-center-label">Média de gols marcados</span>
+                          <span class="team-val away-dim">1.4</span>
+                        </div>
+                        <div class="sofascore-progress-bar">
+                          <div class="progress-fill home-fill" style="width: 61%"></div>
+                          <div class="progress-fill away-fill" style="width: 39%"></div>
+                        </div>
+                      </div>
+
+                      <div class="sofascore-row">
+                        <div class="metric-row-header">
+                          <span class="team-val home-highlight">0.6</span>
+                          <span class="metric-center-label">Média de gols sofridos</span>
+                          <span class="team-val away-dim">0.9</span>
+                        </div>
+                        <div class="sofascore-progress-bar">
+                          <div class="progress-fill home-fill" style="width: 40%"></div>
+                          <div class="progress-fill away-fill" style="width: 60%"></div>
+                        </div>
+                      </div>
+
+                      <div class="sofascore-row">
+                        <div class="metric-row-header">
+                          <span class="team-val home-dim">40%</span>
+                          <span class="metric-center-label">Ambas as equipes marcam</span>
+                          <span class="team-val away-highlight">55%</span>
+                        </div>
+                        <div class="sofascore-progress-bar">
+                          <div class="progress-fill home-fill-secondary" style="width: 42%"></div>
+                          <div class="progress-fill away-fill-primary" style="width: 58%"></div>
+                        </div>
+                      </div>
+
+                      <div class="sofascore-row">
+                        <div class="metric-row-header">
+                          <span class="team-val home-highlight">70%</span>
+                          <span class="metric-center-label">Mais de 2.5 gols na partida</span>
+                          <span class="team-val away-dim">45%</span>
+                        </div>
+                        <div class="sofascore-progress-bar">
+                          <div class="progress-fill home-fill" style="width: 60%"></div>
+                          <div class="progress-fill away-fill" style="width: 40%"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+              </div>
+            </section>
+
+            <section class="round-group" aria-labelledby="round-2-date">
+              <h2 id="round-2-date" class="date-divider">Sexta-feira, 19 de Junho de 2026</h2>
+
+              <div class="match-analytics-wrapper">
+                <article class="match-card">
+                  <div class="match-stage">Grupo G • Rodada 2</div>
+
+                  <div class="teams-display">
+                    <div class="team-block">
+                      <img src="https://flagcdn.com/br.svg" alt="Bandeira do Brasil" class="flag-icon" loading="lazy"
+                        decoding="async">
+                      <strong>Brasil</strong>
+                    </div>
+
+                    <div class="match-details-block">
+                      <time class="match-time">20:00</time>
+                      <span class="stadium-name">Lincoln Financial Field<br><small>Filadélfia</small></span>
+                    </div>
+
+                    <div class="team-block">
+                      <img src="https://flagcdn.com/ht.svg" alt="Bandeira do Haiti" class="flag-icon" loading="lazy"
+                        decoding="async">
+                      <strong>Haiti</strong>
+                    </div>
+                  </div>
+
+                  <div class="historical-badge">
+                    <span class="badge-title">Histórico Geral (Últimos Confrontos)</span>
+                    <div class="badge-row">
+                      <span class="flag-code">BR</span>
+                      <strong class="score-trend-label">7 - 1</strong>
+                      <span class="flag-code">HT</span>
+                    </div>
+                    <button class="btn-action-trigger">REGISTRAR PALPITE</button>
+                  </div>
+                </article>
+
+                <article class="sofascore-stats-card" aria-label="Estatísticas do Confronto Brasil x Haiti">
+                  <div class="stats-tabs-header">
+                    <button class="stats-tab-btn" type="button">H2H</button>
+                    <button class="stats-tab-btn active" type="button" aria-current="true">ESTATÍSTICAS</button>
+                    <button class="stats-tab-btn" type="button">CLASSIFICAÇÃO</button>
+                    <button class="stats-tab-btn" type="button">ODDS</button>
+                  </div>
+
+                  <div class="stats-content-body">
+                    <h3 class="stats-category-title">Controlo de Jogo & Eficiência</h3>
+
+                    <div class="sofascore-metric-block">
+                      <div class="sofascore-row">
+                        <div class="metric-row-header">
+                          <span class="team-val home-highlight">2.2</span>
+                          <span class="metric-center-label">Média de gols marcados</span>
+                          <span class="team-val away-dim">1.1</span>
+                        </div>
+                        <div class="sofascore-progress-bar">
+                          <div class="progress-fill home-fill" style="width: 67%"></div>
+                          <div class="progress-fill away-fill" style="width: 33%"></div>
+                        </div>
+                      </div>
+
+                      <div class="sofascore-row">
+                        <div class="metric-row-header">
+                          <span class="team-val home-highlight">0.6</span>
+                          <span class="metric-center-label">Média de gols sofridos</span>
+                          <span class="team-val away-dim">1.6</span>
+                        </div>
+                        <div class="sofascore-progress-bar">
+                          <div class="progress-fill home-fill" style="width: 27%"></div>
+                          <div class="progress-fill away-fill" style="width: 73%"></div>
+                        </div>
+                      </div>
+
+                      <div class="sofascore-row">
+                        <div class="metric-row-header">
+                          <span class="team-val home-highlight">84%</span>
+                          <span class="metric-center-label">Posse de bola média</span>
+                          <span class="team-val away-dim">41%</span>
+                        </div>
+                        <div class="sofascore-progress-bar">
+                          <div class="progress-fill home-fill" style="width: 67%"></div>
+                          <div class="progress-fill away-fill" style="width: 33%"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+          </div>
+
+          <aside class="right-content">
+
+            <article class="panel-card-widget">
+              <div class="widget-header-meta">
+                <i data-lucide="activity" class="neon-icon" aria-hidden="true"></i>
+                <div>
+                  <h3>Painel do Grupo G</h3>
+                  <p>Estado operacional dinâmico da rodada.</p>
+                </div>
+              </div>
+
+              <div class="summary-meta-list">
+                <div class="meta-item-row">
+                  <span>Meus Palpites no Grupo:</span>
+                  <strong>14 Ativos</strong>
+                </div>
+                <div class="meta-item-row">
+                  <span>Pontuação Acumulada:</span>
+                  <span class="accent-neon">1.250 pts</span>
+                </div>
+                <div class="meta-item-row">
+                  <span>Multiplicador Multi-bet:</span>
+                  <span class="badge-multiplier">x1.5 BOOST</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel-card-widget">
+              <div class="widget-header-meta">
+                <i data-lucide="medal" class="neon-icon" aria-hidden="true"></i>
+                <div>
+                  <h3>Top Ranking Semanal</h3>
+                  <p>Líderes de assertividade da rodada.</p>
+                </div>
+              </div>
+
+              <ol class="ranking-ordered-list">
+                <li class="ranking-user-slot">
+                  <span class="numeric-position pos-1">1º</span>
+                  <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Avatar GeremiasPro"
+                    class="ranking-user-avatar" loading="lazy" decoding="async">
+                  <div class="user-meta-data">
+                    <strong>GeremiasPro</strong>
+                    <small>12.560 pontos</small>
+                  </div>
+                </li>
+                <li class="ranking-user-slot">
+                  <span class="numeric-position pos-2">2º</span>
+                  <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Avatar GabiTips"
+                    class="ranking-user-avatar" loading="lazy" decoding="async">
+                  <div class="user-meta-data">
+                    <strong>GabiTips</strong>
+                    <small>11.320 pontos</small>
+                  </div>
+                </li>
+                <li class="ranking-user-slot">
+                  <span class="numeric-position pos-3">3º</span>
+                  <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Avatar PedroBet"
+                    class="ranking-user-avatar" loading="lazy" decoding="async">
+                  <div class="user-meta-data">
+                    <strong>PedroBet</strong>
+                    <small>10.850 pontos</small>
+                  </div>
+                </li>
+              </ol>
+            </article>
+
+          </aside>
+
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/helpers.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/jogos.js"></script>
+</body>
+
+</html>

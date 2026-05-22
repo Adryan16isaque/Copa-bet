@@ -1,0 +1,27 @@
+═══════════════════════════════════════
+  COPA BET — COMO RODAR (Windows)
+═══════════════════════════════════════
+
+1. Instale o Node.js 18+ (https://nodejs.org)
+
+2. Duplo clique em:  rodar.bat
+
+3. Abra o navegador:  http://localhost:3000
+
+4. Login: qualquer e-mail e senha
+
+───────────────────────────────────────
+Se der erro "porta 3000 em uso":
+  Feche janelas antigas do Copa Bet e rode rodar.bat de novo.
+  (O script tenta liberar a porta automaticamente.)
+───────────────────────────────────────
+Se der erro no SQLite:
+  cd sistemaApostas\backend
+  npm rebuild better-sqlite3
+  npm run dev
+───────────────────────────────────────
+
+Pasta da interface: interface\
+Pasta da API:       sistemaApostas\backend\
+
+Não abra os arquivos .html pelo Explorer.
